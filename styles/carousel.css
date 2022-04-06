@@ -1,0 +1,23 @@
+.carousel-indicators button{
+    width: 10px  !important;
+    height: 10px  !important;
+    border-radius: 100% ;
+    background-color: yellow !important;
+}
+.carousel-indicators{
+    top:0  !important;
+    bottom: auto !important;
+}
+.carousel-caption{
+    text-align: left !important;
+    left: 5% !important;
+    padding-bottom: 0% !important;
+}
+.container .row{
+    margin-top: 3% !important;
+}
+.image-wrap img{
+    max-height:500px !important;
+    width:1010px !important;
+    text-align: center;
+}

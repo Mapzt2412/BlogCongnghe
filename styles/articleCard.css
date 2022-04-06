@@ -1,0 +1,12 @@
+.articleCard img{
+    height: 180px !important;
+    width: 290px !important;
+    text-align: center;
+}
+.author{
+    display: flex;
+    justify-content: space-between;
+}
+.articleCard p{
+    margin-bottom: 0px !important;
+}

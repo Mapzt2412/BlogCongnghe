@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.ticker {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin: 20px;
+}
+
+.news {
+    width: 76%;
+    background: white;
+    padding: 0 2%
+}
+
+.title {
+    width: 20%;
+    text-align: center;
+    background: #d3cb2b;
+    position: relative
+}
+
+.button {
+    margin: 8% 0;
+    color: white;
+}
+.image{
+    margin-left: 50%;
+}
+.newscontent p {
+    margin-right: 41px;
+    display: inline
+}
+.link{
+    color: black;
+}
