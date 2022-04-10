@@ -1,5 +1,6 @@
 .navbar-custom {
-    background-color: #036f89;
+    background: linear-gradient(90deg,#234b86,#017389);
+    
 }
 .navbar-custom a{
     color: white;

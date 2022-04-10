@@ -4,6 +4,9 @@ import '../styles/login.css';
 import '../styles/carousel.css';
 import '../styles/home.css'
 import '../styles/articleCard.css'
+import '../styles/footer.css'
+import '../styles/shortvideo.scss'
+import '../styles/vlog.css'
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }

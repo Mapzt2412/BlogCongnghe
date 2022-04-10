@@ -3,7 +3,7 @@ import { useEffect,useState } from "react";
 import { Button, Form, FormControl, InputGroup, Modal } from "react-bootstrap";
 import Image from "next/image";
 import hide from "../assets/hide.png"
-import view from "../assets/view.png"
+import logo from "../assets/logo.png"
 
 export const Login = (showModal) =>{
 
@@ -37,7 +37,8 @@ export const Login = (showModal) =>{
             
         >
             <Modal.Body>
-                <h2 className="text-center">BeKaBlog</h2>
+                <h2 className="text-center"><Image src={logo} width={200} height={48} className="logo">
+              </Image></h2>
                 <h4 className="text-muted text-center pt-2">Đăng nhập</h4>
                 <Form className="pt-3">
                      <span>Tên đăng nhập</span> 

@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React, { useState } from "react";
 import { HotNews } from '../../components/HotNews'
 import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
 import { ListArticleCard } from '../../components/ListArticleCard'
 import { ControlledCarousel } from '../../components/Carousel'
 import { TrendingCard } from '../../components/TrendingCard'
@@ -19,7 +20,8 @@ export default function Home() {
         <title>Trang chủ</title>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
       </Head>
-      <Header userId ="1"/>
+      <Header userId ="0"/>
+      
       <HotNews/>
       <div className="container" >
         <Row>
@@ -37,7 +39,6 @@ export default function Home() {
               <TrendingCard/>
               <TrendingCard/>
               <TrendingCard/>
-              <TrendingCard/>
               <div className='more'>
                 <a href="#">Xem thêm</a>
               </div>
@@ -49,11 +50,13 @@ export default function Home() {
             <div className='article-related grid2-frames'>
               <h4>BÀI VIẾT LIÊN QUAN</h4>
               <hr />
-              <p><a href="#">1. Người dùng bị khóa FaceBook nếu không bật tính năng bảo mật</a></p>
-              <p><a href="#">2. Người dùng bị khóa FaceBook nếu không bật tính năng bảo mật</a></p>
-              <p><a href="#">3. Người dùng bị khóa FaceBook nếu không bật tính năng bảo mật</a></p>
-              <p><a href="#">4. Người dùng bị khóa FaceBook nếu không bật tính năng bảo mật</a></p>
-              <p><a href="#">5. Người dùng bị khóa FaceBook nếu không bật tính năng bảo mật</a></p>
+              <ol>  
+                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>  
+                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>  
+                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>  
+                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>  
+                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>
+              </ol>  
             </div>
           </Col>
             
@@ -61,7 +64,8 @@ export default function Home() {
         </Row>
       </div>
       
-      
+      <Footer/>
     </div>
+    
   );
 }

@@ -9,4 +9,29 @@
 }
 .articleCard p{
     margin-bottom: 0px !important;
+    font-weight: 600;
+}
+.articleCard img{
+    width: 320px !important;
+}
+.AuthorDetail{
+    display: flex;
+   
+}
+.AuthorDetail p{
+    margin-top: auto;
+    margin-bottom: auto !important;
+    margin-left: 10px !important;
+    font-weight: 400;
+}
+.AvatarAuthor img{
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 100% !important;
+}
+.author .time{
+    margin-top: auto;
+    margin-bottom: auto !important;
+    color:grey;
+    font-weight: 400;
 }

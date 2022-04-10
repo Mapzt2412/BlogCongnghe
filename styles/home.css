@@ -4,7 +4,11 @@
     margin-bottom: 20px;
 }
 .more{
-    text-align: right;  
+  text-align: right;  
+}
+.topic .more{
+  display: flex;
+  text-align: right;  
 }
 .more svg{
   margin: auto;
@@ -23,16 +27,20 @@
 .arrowLine
 {
   display: flex;
-  background-color:#056d88;
+  background: linear-gradient(90deg,#234b86,#017389);
   border-bottom:0 solid transparent;
   border-top:0 solid transparent;
-  height:30px;
+  height:40px;
   width:100%;
   float:left;
   color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  
 }
-.arrowLine-title{
+.arrowLine-topic{
   display: flex;
+  
 }
 .arrowLine p{
   margin: auto 10px;
@@ -40,15 +48,32 @@
 .triangle_left
 {
   height:0px; width:0px;
-  border-left:15px solid #056d88;
-  border-top:15px solid transparent;
-  border-bottom:15px solid transparent;
+  border-left:20px solid #056d88;
+  border-top:20px solid transparent;
+  border-bottom:20px solid transparent;
   float:left;
 }
 .list-card .topic{
   display: flex;
   justify-content: space-between;
+  margin-top: 70px !important;
 }
 .list-card {
   margin-bottom: 50px;
+}
+.article-related p{
+  margin-left: 2px !important;
+  line-height: 21px !important  ;
+}
+.list-card .topic a{
+  color: black;
+  margin: auto 10px !important;
+}
+.topic img{
+  width: 32px !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: auto !important;
+  margin: auto 0px !important;
 }

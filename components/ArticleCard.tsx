@@ -7,7 +7,15 @@ export const ArticleCard = (props) => {
             />
             <p>{props.title}</p>
             <div className="author">
-                <p>{props.author}</p>
+                <div className="AuthorDetail">
+                    <div className="AvatarAuthor">
+                        <Image src={props.avatar}
+                        />
+                    </div>
+                    <p>{props.author}</p>
+                </div>
+                
+                
                 <p className="time">{props.time}</p>
             </div>
         </>

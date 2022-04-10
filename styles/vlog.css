@@ -1,0 +1,42 @@
+.VideoDetail{
+    display: flex;
+}
+.VideoDetail .avatar{
+    min-width: 54px !important;
+    min-height: 54px !important;
+    border-radius: 100%;
+    position: static !important;
+    
+}
+.detail .title{
+    font-size: 20px;
+    margin-bottom: 0px !important;
+}
+.detail a{
+    text-decoration: none;
+    color: black;
+}
+.View_Time{
+    display: flex;
+    color: darkgrey;
+}
+.VideoAuthor a{
+    color:darkgrey;
+}
+
+.VideoCard:hover{
+    transform: scale(1.1);
+    z-index: 1000;  
+    position: relative;
+    background-color: #f5f5f5;
+}
+.VideoCard{
+    transition: all 0.4s ease-in;
+}
+.thumbnail video{
+    width: 100%;
+}
+.thumbnail img{
+    width: 370px !important;
+    height: 204px !important;
+}

@@ -7,6 +7,7 @@ import { Navbars } from '../components/Navbar'
 import { Button, Container, Dropdown, DropdownButton, FormControl, InputGroup, Modal, Nav, Navbar } from "react-bootstrap";
 import Image from "next/image";
 import avatar from "../assets/avatar.jpg"
+import logo from "../assets/logo.png"
 export const Header = (props) => {
   const [openLogin, setOpenMLogin] = useState(false);
   const [openRegister, setOpenMRegister] = useState(false);
@@ -68,7 +69,11 @@ export const Header = (props) => {
   return (
     <>
       <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">BK Blog</Navbar.Brand>
+        <div className="container">
+          <Navbar.Brand href="#home">
+            <Image src={logo} width={200} height={48} className="logo">
+              </Image>
+            </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -83,6 +88,7 @@ export const Header = (props) => {
             </Nav>
           </Navbar.Collapse>
         {checklogin()}
+          </div>
           
 
       </Navbar>
