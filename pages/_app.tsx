@@ -1,3 +1,4 @@
+import '../styles/globals2.css'
 import '../styles/globals.css'
 import '../styles/header.css';
 import '../styles/login.css';

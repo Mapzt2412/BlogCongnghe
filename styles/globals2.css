@@ -1,0 +1,122 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container2{
+  max-width: 85% !important;
+  width: 85% !important;
+  padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.dashboard-menu > ul {
+  padding: 13px 0px;
+  background-color: #f1f1f1;;
+}
+
+.dashboard-menu .head-active {
+  background-color: rgb(193 192 192);
+}
+
+.dashboard-menu .item-active {
+  color: #0090ff;
+}
+
+.dashboard-menu ul ul {
+  padding-left: 17px;
+  
+}
+
+.dashboard-menu li {
+  padding: 10px 30px;
+}
+
+.dashboard-menu .head {
+  font-weight: bold;
+}
+
+.dashboard-menu .head + li {
+  padding: 0px 0px 30px 0px;
+  border-bottom: 1px solid #ccc4c4;
+  margin-bottom: 14px;
+}
+
+.dashboard-menu .head + li:last-child {
+  border-bottom: none;
+}
+
+.dashboard-body h3 {
+  font-size: 24px;
+  font-weight: 650;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgb(193 192 192);
+  margin: 0px;
+}
+
+.dashboard-body .post {
+  padding: 22px 0px;
+  border-bottom: 1px solid #DDD;
+}
+
+.dashboard-body .post h4{
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.dashboard-body .post p {
+  font-weight: 400;
+  color: #757575;
+}
+
+.dashboard-body .post .interactive-num {
+  color: #403a3a;
+  margin-top: 10%;
+}
+
+.profile-menu > ul {
+  padding: 13px 0px;
+  background-color: #f8f8f8;
+}
+
+.profile-menu li {
+  padding: 10px 30px;
+}
+
+.profile-menu .active {
+  background-color: rgb(193 192 192);
+}
+
+.profile-info {
+  margin-bottom: 40px;
+  padding-top: 30px;
+  background-color: #f8f8f8;
+}
+
+.profile-info .activity {
+  color:#8a8a8a;
+  padding: 20px 0 40px 0;
+  text-align: center;
+}
+
+.profile-info .activity span {
+  padding: 0 10px;
+}
