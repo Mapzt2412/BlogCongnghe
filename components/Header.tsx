@@ -70,7 +70,7 @@ export const Header = (props) => {
     <>
       <Navbar bg="light" expand="lg">
         <div className="container">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="home">
             <Image src={logo} width={200} height={48} className="logo">
               </Image>
             </Navbar.Brand>

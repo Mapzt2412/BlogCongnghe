@@ -1,13 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
-
 const withImages = require('next-images')
 module.exports = withImages()
-module.exports = {
-  Images: {
-     domains: ['www.google.com','p16-sign-sg.tiktokcdn.com']
-  }
-  };
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: ['p16-sign-va.tiktokcdn.com','miro.medium.com','photo2.tinhte.vn'],
+    formats: ['image/avif', 'image/webp'],
+  },
+}
 module.exports = nextConfig

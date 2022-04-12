@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, ListGroup } from "react-bootstrap";
 
 import Post from "../../components/post";
+import { Header } from "../../components/Header";
 
 export default function Dashboard() {
   return (
@@ -15,9 +16,7 @@ export default function Dashboard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div
-        style={{ width: "100%", height: "200px", backgroundColor: "#73e6ff" }}
-      ></div>
+      <Header userId="1"/>
 
       <div className="container2">
         <div style={{ color: "#999", padding: "20px 0px 30px 0px" }}>

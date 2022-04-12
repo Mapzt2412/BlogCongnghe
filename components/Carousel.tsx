@@ -5,13 +5,13 @@ import thumbnail from "../assets/thumbnail.jpeg"
 import thumbnail2 from "../assets/thumbnail2.jpg"
 
 
-export function ControlledCarousel() {
+export function ControlledCarousel( props) {
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
-
+    
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} prevIcon={false} nextIcon= {false}>
 
@@ -19,8 +19,10 @@ export function ControlledCarousel() {
                 <div className="image-wrap">
                     <Image
                         className="d-block w-100"
-                        src={thumbnail2}
+                        src={props.image[0]}
                         alt="Four slide" 
+                        width={1010}
+                        height={500}
                     />
                 </div>
                 <Carousel.Caption>
@@ -32,8 +34,10 @@ export function ControlledCarousel() {
                 <div className="image-wrap">
                     <Image
                         className="d-block w-100"
-                        src={thumbnail}
+                        src={props.image[1]}
                         alt="Four slide" 
+                        width={1010}
+                        height={500}
                     />
                 </div>
 
@@ -46,8 +50,10 @@ export function ControlledCarousel() {
                 <div className="image-wrap">
                     <Image
                         className="d-block w-100"
-                        src={thumbnail2}
+                        src={props.image[2]}
                         alt="Four slide" 
+                        width={1010}
+                        height={500}
                     />
                 </div>
                 <Carousel.Caption>
@@ -61,8 +67,10 @@ export function ControlledCarousel() {
                 <div className="image-wrap">
                     <Image
                         className="d-block w-100"
-                        src={thumbnail2}
+                        src={props.image[3]}
                         alt="Four slide" 
+                        width={1010}
+                        height={500}
                     />
                 </div>
                 
@@ -78,8 +86,10 @@ export function ControlledCarousel() {
                 <div className="image-wrap">
                     <Image
                         className="d-block w-100"
-                        src={thumbnail2}
+                        src={props.image[4]}
                         alt="Four slide" 
+                        width={500}
+                        height={250}
                     />
                 </div>
 

@@ -23,7 +23,7 @@ export const Navbars = () => {
             <Nav.Link href="#xuhuong" style={{color:"white"}}>Xu hướng</Nav.Link>
             <Nav.Link href="#tintuc" style={{color:"white"}}>Tin tức</Nav.Link>
             <Nav.Link href="#dexuat" style={{color:"white"}}>Đề xuất</Nav.Link>
-            <Nav.Link href="#vlog" style={{color:"white"}}>Vlog</Nav.Link>
+            <Nav.Link href="vlog" style={{color:"white"}}>Vlog</Nav.Link>
             <Nav.Link href="#help" style={{color:"white"}}>Trợ giúp</Nav.Link>
           </Nav>
         </Navbar.Collapse>

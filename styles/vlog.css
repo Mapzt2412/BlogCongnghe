@@ -24,7 +24,7 @@
     color:darkgrey;
 }
 
-.VideoCard:hover{
+.VideoCardHover:hover{
     transform: scale(1.1);
     z-index: 1000;  
     position: relative;

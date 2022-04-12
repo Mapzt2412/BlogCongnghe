@@ -1,9 +1,13 @@
 .carousel-indicators button{
     width: 10px  !important;
     height: 10px  !important;
+    margin-top: 20px !important;
     border-radius: 100% ;
+
     background-color: yellow !important;
+    
 }
+
 .carousel-indicators{
     top:0  !important;
     bottom: auto !important;

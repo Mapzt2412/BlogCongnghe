@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Col, Container, Row } from 'react-bootstrap';
 
 import { VideoCard } from "../../components/VideoCard";
+import { Footer } from '../../components/Footer';
 
 export default function Vlog (){
     return (
@@ -46,7 +47,7 @@ export default function Vlog (){
                     </Col>
                 </Row>
             </div>
-            
+        <Footer/>
         </>
     );
 }

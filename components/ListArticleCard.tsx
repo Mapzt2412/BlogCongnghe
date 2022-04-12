@@ -30,19 +30,19 @@ export const ListArticleCard = (props) => {
                 <Col lg={4}>
                   <section className='articleCard'>
                   
-                  <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={avatar} img={xuhuong} author="ndminhduc" time="01/03/2020"/>
+                  <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={avatar} img={props.image[0]} author="ndminhduc" time="01/03/2020"/>
                 </section>
                 </Col>
                 <Col lg={4}>
                   <section className='articleCard'>
                   
-                  <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={avatar} img={xuhuong} author="ndminhduc" time="01/03/2020"/>
+                  <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={"https://photo2.tinhte.vn/data/avatars/l/252/252123.jpg?1571427085"} img={props.image[1]} author="MinhTriND" time="01/03/2020"/>
                 </section>
                 </Col>
                 <Col lg={4}>
                   <section className='articleCard'>
                   
-                  <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={avatar} img={xuhuong} author="ndminhduc" time="01/03/2020"/>
+                  <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={avatar} img={props.image[2]} author="ndminhduc" time="01/03/2020"/>
                 </section>
                 </Col>
               </Row>

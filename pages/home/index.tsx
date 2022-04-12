@@ -11,6 +11,16 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Image from "next/image";
 import xuhuong1 from "../../assets/thumbnail2.jpg"
 import xuhuong from "../../assets/thumbnail.jpeg"
+
+let thumbnailImage = ["https://photo2.tinhte.vn/data/attachment-files/2022/04/5939918_Cover_Axiom.jpg",
+"https://photo2.tinhte.vn/data/attachment-files/2022/04/5939632_Cover_su-that.png",
+"https://photo2.tinhte.vn/data/attachment-files/2022/04/5939934_cover_ssd_luu_y_khi_mua_tinhte.jpg",
+"https://photo2.tinhte.vn/data/attachment-files/2022/04/5939849_Cover_Microsoft.jpg",
+"https://photo2.tinhte.vn/data/attachment-files/2022/04/5939143_cover_pixel.jpg",
+"https://photo2.tinhte.vn/data/attachment-files/2022/04/5935575_CV.jpg",
+"https://photo2.tinhte.vn/data/attachment-files/2022/04/5935792_Apple_Bao_Mat_.jpg",
+"https://photo2.tinhte.vn/data/attachment-files/2022/04/5935900_cover_fujikofujioa_large.jpg",
+"https://photo2.tinhte.vn/data/attachment-files/2022/03/5926943_h1.jpg",]
 export default function Home() {
   
   return (
@@ -26,19 +36,19 @@ export default function Home() {
       <div className="container" >
         <Row>
           <Col lg={8}>
-            <ControlledCarousel/>
-              <ListArticleCard title="TECHNOLOGY"/>
-              <ListArticleCard title="PROGRAMMING"/>
-              <ListArticleCard title="BLOCKCHAIN"/>
+            <ControlledCarousel image={thumbnailImage.slice(0,5)}/>
+            <ListArticleCard title="TECHNOLOGY" image={thumbnailImage.slice(0,3)}/>
+            <ListArticleCard title="PROGRAMMING" image={thumbnailImage.slice(3,6)}/>
+            <ListArticleCard title="BLOCKCHAIN" image={thumbnailImage.slice(6,9)}/>
           </Col>
           <Col lg={4} className="grid2">
             <div className='xuhuong grid2-frames'>
             <h4>Xu hướng</h4>
             <hr />
-              <TrendingCard/>
-              <TrendingCard/>
-              <TrendingCard/>
-              <TrendingCard/>
+              <TrendingCard image={thumbnailImage[0]}/>
+              <TrendingCard image={thumbnailImage[1]}/>
+              <TrendingCard image={thumbnailImage[3]}/>
+              <TrendingCard image={thumbnailImage[5]}/>
               <div className='more'>
                 <a href="#">Xem thêm</a>
               </div>
