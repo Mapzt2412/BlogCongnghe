@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
 import avatar from "../assets/avatar3.jpg"
 
-export default function Post() {
+export default function Draft() {
   return (
     <Row className="post">
       <Col lg={4}>
@@ -18,10 +18,6 @@ export default function Post() {
           cao cấp nhất của Apple thu hút người dùng không chỉ nhờ kích thước
           siêu to, mà còn do những nâng cấp đặc biệt về camera, cấu hình.
         </p>
-        <div className="interactive-num">
-        <Image src={avatar} width= {40} height={40}></Image>  
-        <p>_vphlinh | 218 Like  10 Comment</p>
-        </div>
       </Col>
     </Row>
   );

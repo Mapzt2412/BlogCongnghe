@@ -6,8 +6,80 @@ import { Row, Col, ListGroup } from "react-bootstrap";
 
 import Post from "../../components/post";
 import { Header } from "../../components/Header";
+import { EditProfile } from "../../components/EditProfile";
+import { ChangePassWord } from "../../components/ChangePassWord";
+import { useState } from "react";
+import { Follower } from "../../components/Follower";
+import Draft from "../../components/draft";
 
 export default function Dashboard() {
+  let classHead = "head";
+
+  const [content, setContent] = useState("article");
+  function DashBoardContent(){
+    if(content == "article"){
+      return (
+        <>
+        <h3>DANH SÁCH BÀI VIẾT ĐÃ ĐĂNG</h3>
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+        </>
+      );
+    }
+    else if(content == "changePassword"){
+      return(
+        <>
+           <h3>ĐỔI MẬT KHẨU</h3>
+           <ChangePassWord/>
+        </>
+      );
+    }
+    else if(content == "profile"){
+      return (
+        <>
+          <h3>ĐỔI MẬT KHẨU</h3>
+          <EditProfile/>
+        </>
+      );
+    }
+    else if(content == "follow"){
+      return(
+        <>
+          <h3>NGƯỜI THEO DÕI</h3>
+          <Follower/>
+          <Follower/>
+        </>
+      );
+    }
+    else if(content == "follower"){
+      return(
+        <>
+          <h3>NGƯỜI ĐANG THEO DÕI</h3>
+          <Follower/>
+          <Follower/>
+        </>
+      );
+    }
+    else if(content == "draft"){
+      return (
+        <>
+        <h3>BÀI VIẾT NHÁP</h3>
+         <Draft/>
+         <Draft/>
+         <Draft/>
+         <Draft/>
+        </>
+      );
+    }
+    else {
+      return(
+        <>
+        </>
+      );
+    }
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -26,22 +98,55 @@ export default function Dashboard() {
         <Row>
           <Col lg={3} className="dashboard-menu">
             <ul>
-              <li className="head head-active">Quản lí nội dung</li>
+              <li className={(content == "article" ||content == "draft") ? (classHead + " head-active") : classHead }>Quản lí nội dung</li>
               <li>
                 <ul>
-                  <li>Bài viết nháp</li>
-                  <li className="item-active">Bài viết đã đăng</li>
+                  <li 
+                    className={(content == "article") ? "item-active" : "" }
+                    onClick={()=>{
+                    setContent("article")
+                  }}
+                  >Bài viết đã đăng</li>
+                  <li
+                    className={(content == "draft") ? "item-active" : "" }
+                    onClick={()=>{
+                    setContent("draft")
+                    }}
+                  >Bài viết nháp</li>
                   <li>Bảng tin đã đăng</li>
                 </ul>
               </li>
-              <li className="head">Quản lí tài khoản</li>
+              <li className={(content == "profile" || content == "changePassword" || content =="follow" || content == "follower" || content == "bookmark") ? (classHead + " head-active") : classHead }>Quản lí tài khoản</li>
               <li>
                 <ul>
-                  <li>Thông tin cá nhân</li>
-                  <li>Đổi mật khẩu</li>
-                  <li>Người theo dõi</li>
-                  <li>Người đang theo dõi</li>
-                  <li>Bookmark</li>
+                  <li 
+                    className={(content == "profile") ? "item-active" : "" }
+                    onClick={()=>{
+                    setContent("profile")
+                  }}>Thông tin cá nhân</li>
+                  <li
+                    className={(content == "changePassword") ? "item-active" : "" }
+                    onClick={()=>{
+                    setContent("changePassword")
+                  }}
+                  >Đổi mật khẩu</li>
+                  <li
+                    className={(content == "follow") ? "item-active" : "" }
+                    onClick={()=>{
+                    setContent("follow")
+                  }}
+                  >Người theo dõi</li>
+                  <li
+                    className={(content == "follower") ? "item-active" : "" }
+                    onClick={()=>{
+                    setContent("follower")
+                  }}
+                  >Người đang theo dõi</li>
+                  <li
+                    className={(content == "bookmark") ? "item-active" : "" }
+                    onClick={()=>{
+                    setContent("bookmark")}}
+                  >Bookmark</li>
                 </ul>
               </li>
               <li className="head">Quản lí cấp bậc</li>
@@ -53,11 +158,7 @@ export default function Dashboard() {
             </ul>
           </Col>
           <Col lg={9} className="dashboard-body">
-            <h3>DANH SÁCH BÀI VIẾT ĐÃ ĐĂNG</h3>
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+            {DashBoardContent()}
           </Col>
         </Row>
       </div>

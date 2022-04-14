@@ -151,11 +151,11 @@ video{
     cursor: pointer;
     border: none;
     outline: none;
-    transform: rotate(-90deg);
-    top: calc(50% - 48px);
+    top: calc(50%);
     margin-top: -24px;
     background: rgba(255, 255, 255, 0.12);
-    right: 20px;
+    left: 20px;
+    transform: rotate(180deg);
 }
 .ButtonBasicButtonContainerRight{
     position: absolute;
@@ -171,8 +171,8 @@ video{
     cursor: pointer;
     border: none;
     outline: none;
-    transform: rotate(90deg);
-    top: calc(50% + 8px);
+
+    top: calc(50%);
     margin-top: -24px;
     background: rgba(255, 255, 255, 0.12);
     right: 20px;
@@ -314,4 +314,37 @@ video{
 .ContentContainer   {
     font-size: 16px;
     line-height: 22px;
+}
+.Interactive{
+    margin-top:50px;
+    display: flex;
+    padding: 20px 0px;
+    border-bottom: 2px solid #999;
+}
+.Interactive button{
+    display:inline-flex;
+    padding: 5px 20px;
+    margin-right: 20px;
+    border: #f5f5f5;
+    background-color: #f5f5f5;
+    font-size: 16px;
+    text-align: center;
+    
+    
+}
+.Interactive button p{
+    margin: auto;
+}
+.WriteComment{
+    margin-top: 30px;
+}
+.WriteComment #WriteComment{
+    font-size:large;
+    width: 100%;
+    border: #fff;
+    background-color: #f5f5f5;
+    padding: 8px;
+}
+.WriteComment #WriteComment::placeholder{
+    padding: 5px;   
 }

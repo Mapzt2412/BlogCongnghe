@@ -57,3 +57,9 @@ button .bi{
     margin: auto;
     min-height: 20px !important;
 }
+.user .dropdown-menu{
+    margin-left: -81px;
+}
+.nav-link{
+    padding: 10px 20px !important;
+}

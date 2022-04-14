@@ -1,0 +1,32 @@
+.CreatePostContainer .col10{
+    background-color: white !important;
+    width: 100% !important;
+    color: grey !important;
+    text-align: right !important;
+    height: 39px !important;
+    border: 2px solid #dcd8d8 !important;
+}
+.CreatePostContainer .col2{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+.CreatePostContainer .rowContainer{
+    padding-Bottom: 10px ;
+    padding-Top: 25px ;
+    margin-Right: 58px;
+    border-Bottom: 1px solid #d5d4d4;
+}
+.CreatePostContainer .ImageContainer{
+    display: flex !important;
+    border-Bottom: 1px solid #d5d4d4;
+    align-items: center;
+    justify-content: center;
+
+}
+.CreatePostContainer .ImageContainer img{
+    display: flex !important;
+    margin: auto !important;
+    min-width: 100% !important;
+    max-height: 100% !important;
+}

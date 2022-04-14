@@ -25,10 +25,13 @@ export function ControlledCarousel( props) {
                         height={500}
                     />
                 </div>
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
+                <div className="caption">
+                    <Carousel.Caption>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </Carousel.Caption>
+                </div>
+                
             </Carousel.Item>
             <Carousel.Item>
                 <div className="image-wrap">

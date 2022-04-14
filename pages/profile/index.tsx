@@ -2,11 +2,43 @@ import Head from "next/head";
 import Image from "next/image";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, ListGroup } from "react-bootstrap";
-
+import { FollowerCard } from "../../components/FollowerCard";
+import { Follower } from "../../components/Follower";
 import Post from "../../components/post";
 import { Header } from "../../components/Header";
+import { useState } from "react";
 
 export default function Profile() {
+  const [content, setContent] = useState("article");
+  function ProFileContent (){
+    if(content == "article"){
+      return( 
+        <>
+        <h3>DANH SÁCH BÀI VIẾT ĐÃ ĐĂNG</h3>
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+        </>
+      );
+    }
+    else if(content == "follower"){
+      return(
+        <>
+          <h3>DANH SÁCH NGƯỜI THEO DÕI</h3>
+          <Follower/>
+        </>
+      );
+    }
+    else{
+      return(
+        <>
+          <h3>DANH SÁCH NGƯỜI ĐANG THEO DÕI</h3>
+          <Follower/>
+         </>
+      );
+    }
+  }
   return (
     <div>
       <Head>
@@ -64,17 +96,26 @@ export default function Profile() {
         <Row>
           <Col lg={3} className="profile-menu">
             <ul>
-              <li className="active">Danh sách bài viết</li>
-              <li>Người theo dõi</li>
-              <li>Người đang theo dõi</li>
+              <li 
+                className={content == "article" ? 'active':''}
+                onClick={() =>{
+                setContent ("article");
+              }}>Danh sách bài viết</li>
+              <li className={content == "follower" ? 'active':''}
+                onClick={() =>{  
+                setContent ("follower");}
+                
+              }
+              >Người theo dõi</li>
+              <li className={content == "follow" ? 'active':''} 
+                onClick={() =>{
+                setContent ("follow");}}
+              >Người đang theo dõi</li>
             </ul>
           </Col>
           <Col lg={9} className="dashboard-body">
-            <h3>DANH SÁCH BÀI VIẾT ĐÃ ĐĂNG</h3>
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+            
+            {ProFileContent()}
           </Col>
         </Row>
       </div>

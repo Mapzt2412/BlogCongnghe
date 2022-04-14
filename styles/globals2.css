@@ -120,3 +120,80 @@ ul {
 .profile-info .activity span {
   padding: 0 10px;
 }
+
+.followerCard{
+  display: flex;
+  padding: 16px;
+  margin: 0px 0px 8px;
+}
+.followerCard .avatar img{
+  border-radius: 10px;
+}
+.followerCard .description{
+  margin: auto;
+  margin-left: 10px !important;
+}
+.followerCard .description h5{
+  margin-bottom: 0px !important;
+}
+.followerCard .description p{
+  color: #8a8a8a;
+  margin-bottom: 0px !important;
+}
+.followerCard button{
+  background: linear-gradient(90deg,#234b86,#017389);
+ 
+  height: 40px;
+  margin: auto;
+}
+
+.photo_section .avatarImage{
+  margin: auto !important;
+}
+.section{
+  padding: 20px;
+  border-bottom: 1px solid #DDD;
+}
+.save{
+  margin: 20px 45%;
+  padding: 10px 30px !important;
+  background-color: #234b86 !important;
+  color: white !important;
+}
+.section h4{
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Chọn ảnh đại diện';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+.interactive-num img{
+ border-radius: 100%;
+}
+.interactive-num p{
+  margin: auto 10px ;
+}
+.interactive-num{
+  display: flex;
+}

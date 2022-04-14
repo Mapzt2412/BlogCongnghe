@@ -8,6 +8,8 @@ import { Button, Container, Dropdown, DropdownButton, FormControl, InputGroup, M
 import Image from "next/image";
 import avatar from "../assets/avatar.jpg"
 import logo from "../assets/logo.png"
+import Link from "next/link";
+
 export const Header = (props) => {
   const [openLogin, setOpenMLogin] = useState(false);
   const [openRegister, setOpenMRegister] = useState(false);
@@ -56,12 +58,16 @@ export const Header = (props) => {
           </div>
           
           <DropdownButton variant="" className="user" id="dropdown-basic-button" title={<Image src={avatar} width={35} height={35}/>}>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            <Dropdown.Item href="profile">Trang cá nhân</Dropdown.Item>
+            <Dropdown.Item href="dashboard">DashBoard</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Cài đặt</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Đăng xuất</Dropdown.Item>
           </DropdownButton>
           <div className="vr"/>  
-          <Button variant="" className="create-article">TẠO BÀI VIẾT</Button>
+          <Link href="createPost">
+            <Button variant="" className="create-article">TẠO BÀI VIẾT</Button>
+          </Link>
+          
         </>
       );
     }

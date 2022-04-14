@@ -1,10 +1,22 @@
 import Head from "next/head";
 import Image from "next/image";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Dropdown, Button } from "react-bootstrap";
+import { Row, Col, Dropdown, Button, Form } from "react-bootstrap";
 import { Header } from "../../components/Header";
+import { useEffect, useState } from "react";
 
 export default function CreatePost() {
+  const [image, setImage] = useState();
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+    file.preview = URL.createObjectURL(file);
+    setImage(file)
+  }
+  useEffect(() => {
+      return () => {
+          URL.revokeObjectURL(image)
+      }
+  }, [image])
   return (
     <div>
       <Head>
@@ -19,39 +31,25 @@ export default function CreatePost() {
           Home / <span style={{ color: "#333" }}>Tạo bài viết</span>
         </div>
 
-        <Row>
+        <Row className="CreatePostContainer">
           <Col lg={8}>
             <Row
-              style={{
-                paddingBottom: "25px",
-                marginRight: "58px",
-                borderBottom: "1px solid #d5d4d4",
-              }}
+              className="rowContainer"
             >
               <Col lg={2}>
                 <div
-                  style={{
-                    display: "inline-block",
-                    verticalAlign: "middle",
-                    lineHeight: "normal"
-                  }}
+                  className="col2"
                 >
                   Chủ đề
                 </div>
               </Col>
+              
               <Col lg={10} style={{ paddingRight: "0px" }}>
-                <Dropdown>
+                <Dropdown >
                   <Dropdown.Toggle
                     variant="secondary"
                     id="dropdown-basic"
-                    style={{
-                      backgroundColor: "white",
-                      width: "100%",
-                      color: "grey",
-                      textAlign: "right",
-                      height: "39px",
-                      border: "2px solid #dcd8d8",
-                    }}
+                    className="col10"
                   ></Dropdown.Toggle>
 
                   <Dropdown.Menu style={{ width: "100%" }}>
@@ -61,13 +59,70 @@ export default function CreatePost() {
                   </Dropdown.Menu>
                 </Dropdown>
               </Col>
+              
             </Row>
-            <Row>
+            <Row
+              className="rowContainer"
+            >
+              <Col lg={2}>
+                <div
+                  className="col2"
+                >
+                  Tag
+                </div>
+              </Col>
+              
+              <Col lg={10} style={{ paddingRight: "0px" }}>
+              <Form.Group className="mb-3 title" controlId="title">
+                <Form.Control as="textarea" rows={1} placeholder="Mỗi bài viết được gắn tối đa 4 tag"/>
+              </Form.Group>
+              </Col>
+              
+            </Row>
+            <Row
+              className="rowContainer"
+            >
+              <Col lg={2}>
+                <div
+                  style={{
+                    display: "inline-block",
+                    verticalAlign: "middle",
+                    lineHeight: "normal"
+                  }}
+                >
+                  Tiêu đề
+                </div>
+              </Col>
+              
+              <Col lg={10} style={{ paddingRight: "0px" }}>
+              <Form.Group className="mb-3 title" controlId="title">
+                <Form.Control as="textarea" rows={1} />
+              </Form.Group>
+              </Col>
+              
+            </Row>
+            <Row className="rowContainer"
+            >
+              <Col lg={2}>
+                <div className="col2">
+                  Sơ lược
+                </div>
+              </Col>
+              <Col lg={10} style={{ paddingRight: "0px" }}>
+              <Form.Group className="mb-3 title" controlId="title">
+                <Form.Control as="textarea" rows={3} placeholder="140-170 ký tự đầu tiên có thể xuất hiện trong kết quả tìm kiếm."/>
+              </Form.Group>
+              </Col>
+              
+            </Row>
+            <Row className="ImageContainer"
+                  style={{
+                  borderBottom: "1px solid #d5d4d4",
+                }}>
               <Col
                 lg={11}
                 style={{
                   padding: "25px 0",
-                  borderBottom: "1px solid #d5d4d4",
                 }}
               >
                 <div
@@ -78,12 +133,21 @@ export default function CreatePost() {
                     backgroundColor: "#efe8e3",
                   }}
                 >
+                  
                   <div style={{ flexGrow: "30", lineHeight: "38px" }}>
                     Hình ảnh
                   </div>
-                  <Button style={{ flexGrow: "1" }}>+</Button>
+                  <input type="file" 
+                    onChange={handleImage }  
+                    style={{display:"none"}}   
+                  />
+                  <Button style={{ flexGrow: "1" }} onClick={ ()=>{
+                        const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+                        input.click();
+                    }}>+</Button>
                 </div>
               </Col>
+              
               <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
                 <div
                   style={{
@@ -103,6 +167,10 @@ export default function CreatePost() {
                   X
                 </div>
               </Col>
+              {image && (
+                    <Image src={image.preview} alt="" width={500} height={1000}></Image>
+                )
+                }
             </Row>
 
             <Row>
@@ -168,6 +236,7 @@ export default function CreatePost() {
                 THÊM TIỆN ÍCH
               </h2>
               <Row>
+                
                 <Col lg={6}>
                   <div
                     style={{
@@ -189,57 +258,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Nội dung
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col lg={6}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      padding: "10px 20px",
-                      height: "150px",
-                      marginTop: "15px"
-                    }}
-                  >
-                    Nội dung
-                  </div>
-                </Col>
-                <Col lg={6}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      padding: "10px 20px",
-                      height: "150px",
-                      marginTop: "15px"
-                    }}
-                  >
-                    Nội dung
-                  </div>
-                </Col>
-                <Col lg={6}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      padding: "10px 20px",
-                      height: "150px",
-                      marginTop: "15px"
-                    }}
-                  >
-                    Nội dung
-                  </div>
-                </Col>
-                <Col lg={6}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      padding: "10px 20px",
-                      height: "150px",
-                      marginTop: "15px"
-                    }}
-                  >
-                    Nội dung
+                    Hình ảnh
                   </div>
                 </Col>
               </Row>
@@ -253,7 +272,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Nội dung
+                    Video
                   </div>
                 </Col>
                 <Col lg={6}>
@@ -265,7 +284,31 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Nội dung
+                    Bình chọn
+                  </div>
+                </Col>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                    Biểu đồ
+                  </div>
+                </Col>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                    Bản đồ
                   </div>
                 </Col>
               </Row>
@@ -279,7 +322,59 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Nội dung
+                    Bảng
+                  </div>
+                </Col>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                    Công thức toán học
+                  </div>
+                </Col>  
+              </Row>
+              <Row>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                    Câu hỏi
+                  </div>
+                </Col>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                    Đánh giá
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                    Lập trình
                   </div>
                 </Col>
                 <Col lg={6}></Col>
