@@ -1,22 +1,54 @@
 import Head from "next/head";
 import Image from "next/image";
+import ReactPlayer from 'react-player'
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Dropdown, Button, Form } from "react-bootstrap";
+import { EditorProps  } from 'react-draft-wysiwyg';
+import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css'; 
+import dynamic from 'next/dynamic';
+import { Row, Col, Dropdown, Button, Form, Modal } from "react-bootstrap";
 import { Header } from "../../components/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import icon_image from "../../assets/icon_images.png"
+import icon_text from "../../assets/icon_content.png"
+import icon_Video from "../../assets/icon_movie.png"
+import icon_rating from "../../assets/icon_rating.png"
+import icon_code from "../../assets/icon_code.png"
+import icon_poll from "../../assets/icon_poll.png"
+import icon_map from "../../assets/icon_map.png"
+import icon_table from "../../assets/icon_calendar.png"
+import icon_question from "../../assets/icon_question.png"
+import icon_math from "../../assets/icon_math.jpg"
+
+
 
 export default function CreatePost() {
+  const [show, setShow] = useState(false);
+  const textInput = useRef(null)
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [image, setImage] = useState();
   const handleImage = (e) => {
     const file = e.target.files[0];
-    file.preview = URL.createObjectURL(file);
-    setImage(file)
+    if(file){
+      file.preview = URL.createObjectURL(file);
+      setImage(file)
+    }
+   
   }
+
+  const Editor = dynamic<EditorProps >(
+    () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
+    { ssr: false }
+  )
+  const [editor, setEditor] = useState<boolean>(false)
   useEffect(() => {
-      return () => {
-          URL.revokeObjectURL(image)
-      }
-  }, [image])
+    setEditor(true)
+  })
+  // useEffect(() => {
+  //     return () => {
+  //         URL.revokeObjectURL(image)
+  //     }
+  // }, [image])
   return (
     <div>
       <Head>
@@ -25,7 +57,24 @@ export default function CreatePost() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header userId="1"/>
-
+      
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Video</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Để link video hoặc mã nhúng vào hộp thoại bên dưới
+        <Form.Control type="text" placeholder="Url video" id="Url_video" ref={textInput}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      
       <div className="container2">
         <div style={{ color: "#999", padding: "20px 0px 30px 0px" }}>
           Home / <span style={{ color: "#333" }}>Tạo bài viết</span>
@@ -115,23 +164,13 @@ export default function CreatePost() {
               </Col>
               
             </Row>
-            <Row className="ImageContainer"
-                  style={{
-                  borderBottom: "1px solid #d5d4d4",
-                }}>
+            <Row className="MediaContainer">
               <Col
                 lg={11}
-                style={{
-                  padding: "25px 0",
-                }}
+                className="item-container"
               >
                 <div
-                  style={{
-                    display: "flex",
-                    padding: "0px",
-                    paddingLeft: "15px",
-                    backgroundColor: "#efe8e3",
-                  }}
+                  className="item"
                 >
                   
                   <div style={{ flexGrow: "30", lineHeight: "38px" }}>
@@ -150,29 +189,86 @@ export default function CreatePost() {
               
               <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
                 <div
-                  style={{
-                    color: "white",
-                    backgroundColor: "red",
-                    textAlign: "center",
-                    fontSize: "14px",
-                    fontWeight: "700",
-                    display: "inline-block",
-                    width: "23px",
-                    lineHeight: "normal",
-                    borderRadius: "50%",
-                    verticalAlign: "middle",
-                    padding: "2px",
-                  }}
+                   className="deleteIcon"
                 >
                   X
                 </div>
               </Col>
               {image && (
-                    <Image src={image.preview} alt="" width={500} height={1000}></Image>
+                    <img src={image.preview} alt=""></img>
                 )
                 }
             </Row>
-
+            <Row className="MediaContainer">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Video
+                  </div>
+                  <Button 
+                      style={{ flexGrow: "1" }}
+                      onClick={handleShow} >+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                >
+                  X
+                </div>
+              </Col>
+              { 
+                
+                (textInput.current != null && textInput.current.value) && (
+                <ReactPlayer url={textInput.current.value}/>
+              )
+              }
+            </Row>
+            <Row className="TextContainer">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Nội dung
+                  </div>
+                </div>
+                {editor ? (
+                    <Editor
+                        wrapperClassName="wrapper-class"
+                        editorClassName="editor-class"
+                        toolbarClassName="toolbar-class"
+                        toolbar={{
+                            options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'fontFamily', 'colorPicker','emoji','history'],
+                            inline: { inDropdown: true },
+                            list: { inDropdown: true },
+                            textAlign: { inDropdown: true },
+                            link: { inDropdown: true },
+                            history: { inDropdown: true }
+                        }}
+                    />) : null}
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                >
+                  X
+                </div>
+              </Col>
+              
+            </Row>
             <Row>
               <Col
                 lg={11}
@@ -223,7 +319,7 @@ export default function CreatePost() {
           </Col>
           <Col lg={4} style={{ paddingLeft: "34px" }}>
             <div
-              style={{ backgroundColor: "#f6f6f6", padding: "0 18px 0 20px" }}
+              style={{ backgroundColor: "#f6f6f6", padding: "0 18px 20px 20px" }}
             >
               <h2
                 style={{
@@ -246,7 +342,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Nội dung
+                    <Image src={icon_text} width={150} height={150}></Image>
                   </div>
                 </Col>
                 <Col lg={6}>
@@ -258,57 +354,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Hình ảnh
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col lg={6}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      padding: "10px 20px",
-                      height: "150px",
-                      marginTop: "15px"
-                    }}
-                  >
-                    Video
-                  </div>
-                </Col>
-                <Col lg={6}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      padding: "10px 20px",
-                      height: "150px",
-                      marginTop: "15px"
-                    }}
-                  >
-                    Bình chọn
-                  </div>
-                </Col>
-                <Col lg={6}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      padding: "10px 20px",
-                      height: "150px",
-                      marginTop: "15px"
-                    }}
-                  >
-                    Biểu đồ
-                  </div>
-                </Col>
-                <Col lg={6}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      padding: "10px 20px",
-                      height: "150px",
-                      marginTop: "15px"
-                    }}
-                  >
-                    Bản đồ
+                    <Image src={icon_image} width={150} height={150}></Image>
                   </div>
                 </Col>
               </Row>
@@ -322,7 +368,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Bảng
+                    <Image src={icon_Video} width={150} height={150}></Image>
                   </div>
                 </Col>
                 <Col lg={6}>
@@ -334,7 +380,57 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Công thức toán học
+                    <Image src={icon_poll} width={150} height={150}></Image>
+                  </div>
+                </Col>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                  <Image src="https://www.seekpng.com/png/detail/444-4449289_diagram-png-diagram-icon.png" alt="Diagram Png - Diagram Icon@seekpng.com" width={150} height={150}/> 
+                  </div>
+                </Col>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                    <Image src={icon_map} width={150} height={150}></Image>
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                    <Image src={icon_table} width={150} height={150}></Image>
+                  </div>
+                </Col>
+                <Col lg={6}>
+                  <div
+                    style={{
+                      backgroundColor: "white",
+                      padding: "10px 20px",
+                      height: "150px",
+                      marginTop: "15px"
+                    }}
+                  >
+                    <Image src={icon_math} width={150} height={150}></Image>
                   </div>
                 </Col>  
               </Row>
@@ -348,7 +444,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Câu hỏi
+                  <Image src={icon_question} width={150} height={150}></Image>
                   </div>
                 </Col>
                 <Col lg={6}>
@@ -360,29 +456,17 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    Đánh giá
+                    <Image src={icon_rating} width={150} height={150}></Image>
                   </div>
                 </Col>
               </Row>
               <Row>
-                <Col lg={6}>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      padding: "10px 20px",
-                      height: "150px",
-                      marginTop: "15px"
-                    }}
-                  >
-                    Lập trình
-                  </div>
-                </Col>
-                <Col lg={6}></Col>
               </Row>
             </div>
           </Col>
         </Row>
       </div>
+
     </div>
   );
 }

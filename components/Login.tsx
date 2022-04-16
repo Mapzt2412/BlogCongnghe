@@ -6,6 +6,7 @@ import hide from "../assets/hide.png"
 import logo from "../assets/logo.png"
 
 export const Login = (showModal) =>{
+    
 
     const [show, setShow] = useState(false);
     const handleClose = () => {
