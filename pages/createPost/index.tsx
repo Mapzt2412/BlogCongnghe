@@ -18,12 +18,20 @@ import icon_map from "../../assets/icon_map.png"
 import icon_table from "../../assets/icon_calendar.png"
 import icon_question from "../../assets/icon_question.png"
 import icon_math from "../../assets/icon_math.jpg"
+import { HandleTable } from "../../components/HandleTable";
+import { HandleVideo } from "../../components/handleVideo";
 
 
 
 export default function CreatePost() {
   const [show, setShow] = useState(false);
+  const [close, setClose] = useState(false);
+  const [showMap, setShowMap] = useState(false);
+  const handleCloseMap = () => setShowMap(false);
+  const handleShowMap = () => setShowMap(true);
+  const [showTable, setShowTable] = useState(false);
   const textInput = useRef(null)
+  const mapInput = useRef(null)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [image, setImage] = useState();
@@ -35,6 +43,9 @@ export default function CreatePost() {
     }
    
   }
+  const callbackFunction = (childData) => {
+    setShow(childData)
+  }
 
   const Editor = dynamic<EditorProps >(
     () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
@@ -44,11 +55,8 @@ export default function CreatePost() {
   useEffect(() => {
     setEditor(true)
   })
-  // useEffect(() => {
-  //     return () => {
-  //         URL.revokeObjectURL(image)
-  //     }
-  // }, [image])
+
+
   return (
     <div>
       <Head>
@@ -57,24 +65,22 @@ export default function CreatePost() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header userId="1"/>
-      
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={showMap} onHide={handleCloseMap}>
         <Modal.Header closeButton>
-          <Modal.Title>Video</Modal.Title>
+          <Modal.Title>Bản đồ</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Để link video hoặc mã nhúng vào hộp thoại bên dưới
-        <Form.Control type="text" placeholder="Url video" id="Url_video" ref={textInput}/>
+        <Modal.Body>Để mã nhúng vào bên dưới
+        <Form.Control type="text" placeholder="Mã nhúng bản đồ của bạn" id="Url_video" ref={mapInput}/>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleCloseMap}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleCloseMap}>
             Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
-      
       <div className="container2">
         <div style={{ color: "#999", padding: "20px 0px 30px 0px" }}>
           Home / <span style={{ color: "#333" }}>Tạo bài viết</span>
@@ -213,7 +219,9 @@ export default function CreatePost() {
                   </div>
                   <Button 
                       style={{ flexGrow: "1" }}
-                      onClick={handleShow} >+</Button>
+                      onClick={()=> {
+                        setShow(true)
+                      }} >+</Button>
                 </div>
               </Col>
               
@@ -224,12 +232,37 @@ export default function CreatePost() {
                   X
                 </div>
               </Col>
-              { 
-                
-                (textInput.current != null && textInput.current.value) && (
-                <ReactPlayer url={textInput.current.value}/>
-              )
-              }
+                <HandleVideo show ={show} parentCallback={callbackFunction}/>
+            </Row>
+            <Row className="MediaContainer">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Video
+                  </div>
+                  <Button 
+                      style={{ flexGrow: "1" }}
+                      onClick={()=> {
+                        setShow(true)
+                      }} >+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                >
+                  X
+                </div>
+              </Col>
+                  <HandleVideo show ={show} parentCallback={callbackFunction}/>
+
             </Row>
             <Row className="TextContainer">
               <Col
@@ -269,6 +302,92 @@ export default function CreatePost() {
               </Col>
               
             </Row>
+            <Row className="MediaContainer">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Bảng
+                  </div>
+                  <Button 
+                      style={{ flexGrow: "1" }}
+                      onClick={()=>{
+                        setShowTable(true)
+                      }} >+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                >
+                  X
+                </div>
+              </Col>
+            {(showTable == true) && (<HandleTable show = {showTable}/>)}
+            </Row>
+            <Row className=" MediaContainer ">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Bản đồ
+                  </div>
+                  <Button 
+                      style={{ flexGrow: "1" }}
+                      onClick={handleShowMap} >+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                >
+                  X
+                </div>
+              </Col>
+              { 
+                
+                (mapInput.current != null && mapInput.current.value) && (
+                  <div className="MapContainer" dangerouslySetInnerHTML={{__html: mapInput.current.value}}></div> 
+              )
+              }
+          </Row>
+          <Row className=" MediaContainer ">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Đánh giá
+                  </div>
+                  <Button 
+                      style={{ flexGrow: "1" }}
+                      onClick={handleShowMap} >+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                >
+                  X
+                </div>
+              </Col>
+          </Row>
             <Row>
               <Col
                 lg={11}
@@ -469,4 +588,5 @@ export default function CreatePost() {
 
     </div>
   );
+
 }

@@ -38,3 +38,11 @@ a {
   margin-left: auto;
 }
 
+.row-col{
+  display: flex;
+}
+.ka-cell-text{
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0px 10px;
+}

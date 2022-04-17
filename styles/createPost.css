@@ -29,6 +29,7 @@
     color: black;
 }
 .CreatePostContainer .TextContainer{
+    border-Bottom: 1px solid #d5d4d4;
     margin-top: 25px;
 }
 .CreatePostContainer .MediaContainer img{
@@ -56,4 +57,7 @@
     border-Radius: 50%;
     vertical-Align: middle;
     padding: 2px;
+}
+.MapContainer{
+    display: contents !important;
 }
