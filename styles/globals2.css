@@ -31,8 +31,7 @@ a {
   padding-left: var(--bs-gutter-x,.75rem);
   margin-right: auto;
   margin-left: auto;
-} src={}
-
+}
 
 ul {
   list-style-type: none;
@@ -87,10 +86,6 @@ ul {
   border-bottom: 1px solid #DDD;
 }
 
-.dashboard-body .post:last-child {
-  border-bottom: none;
-}
-
 .dashboard-body .post h4{
   font-size: 22px;
   font-weight: 500;
@@ -103,7 +98,7 @@ ul {
 
 .dashboard-body .post .interactive-num {
   color: #403a3a;
-  margin-top: 8%;
+  margin-top: 8q%;
 }
 
 .profile-menu > ul {
@@ -211,10 +206,63 @@ ul {
 .interactive-num{
   display: flex;
 }
-.icon {
-  display: inline-flex;
-  background-color: #f5f5f5;
-  padding: 8px 16px 8px 16px;
-  border-radius: 3px;
+
+.interactive-num .form-group {
+  margin: 0px !important;
+}
+
+.like-share {
+  margin-top: 50px;
+}
+
+.like-share .icon {
+  display: inline-block;    
+  padding: 5px 10px;
+  background-color: #f3f3f3;
+  margin-right: 10px;
+}
+
+.like-share .icon Image {
+  vertical-align: middle;
+}
+
+.like-share .icon span {
+  vertical-align: middle;
+}
+
+.like-share hr {
+  color: #999;
+}
+
+.like-share .list-comment .comment span {
+  border-radius: 50px;
   margin-right: 24px;
+  border-radius: 50px;
+  vertical-align: top;
+}
+
+.list-comment {
+  margin-bottom: 30px;
+}
+
+.comment {
+  margin-top: 20px;
+}
+
+.comment .comment-message {
+  display: inline-block;
+  width: 91%;
+  padding: 10px 15px;
+  background-color: #f5f5f5;;
+}
+
+.comment .comment-message .name {
+  font-weight: 700;
+}
+
+.comment .comment-message .name span {
+  font-weight: normal;
+  color: #999;
+  font-size: 13px;
+  line-height: 24px;
 }

@@ -11,7 +11,7 @@ import { FormControl, InputGroup} from "react-bootstrap";
 
 export default function LikeShareComment() {
   return (
-    <div>
+    <div className="like-share">
                     <div className='icon like'>
                         <Image src={IconLike} width= {24} height={24}></Image>
                         <span style={{ paddingLeft: '8px'}}>218 Thích</span>
@@ -26,13 +26,34 @@ export default function LikeShareComment() {
                     </div>
                     <hr />
                     <div className="interactive-num">
-                        <Image src={avatar} width= {40} height={40}></Image>  
                         <InputGroup className="form-group has-search">
-                            <span className="fa fa-search form-control-feedback"></span>
                             <FormControl className="form-search" placeholder="Viết bình luận"/>
                         </InputGroup>
                     </div>
                     <hr />
+                    <div className="list-comment">
+                        <div className="comment">
+                            <span><Image src={avatar} width= {40} height={40} /></span> 
+                            <div className="comment-message">
+                                <div className="name">_vphlinh &nbsp; <span>cách đây 1 ngày</span></div>
+                                <p>Thầy làm cả chục năm còn bảo frontend chẳng mấy khi dùng algorithm and data structure mà thấy lắm công ty khoái hỏi phết </p>
+                            </div>
+                        </div>
+                        <div className="comment">
+                            <span><Image src={avatar} width= {40} height={40} /></span> 
+                            <div className="comment-message">
+                                <div className="name">_vphlinh &nbsp; <span>cách đây 1 ngày</span></div>
+                                <p>Thầy làm cả chục năm còn bảo frontend chẳng mấy khi dùng algorithm and data structure mà thấy lắm công ty khoái hỏi phết </p>
+                            </div>
+                        </div>
+                        <div className="comment">
+                            <span><Image src={avatar} width= {40} height={40} /></span> 
+                            <div className="comment-message">
+                                <div className="name">_vphlinh &nbsp; <span>cách đây 1 ngày</span></div>
+                                <p>Thầy làm cả chục năm còn bảo frontend chẳng mấy khi dùng algorithm and data structure mà thấy lắm công ty khoái hỏi phết </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
   );
 }
