@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
 import avatar from "../assets/avatar3.jpg"
@@ -19,7 +19,7 @@ export default function Post() {
           siêu to, mà còn do những nâng cấp đặc biệt về camera, cấu hình.
         </p>
         <div className="interactive-num">
-        <Image src={avatar} width= {40} height={40}></Image>  
+        <Image src={avatar} width= {40} height={40} />  
         <p>_vphlinh | 218 Like  10 Comment</p>
         </div>
       </Col>

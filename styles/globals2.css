@@ -24,6 +24,16 @@ a {
   margin-left: auto;
 }
 
+.container3{
+  max-width: 50% !important;
+  width: 50% !important;
+  padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem);
+  margin-right: auto;
+  margin-left: auto;
+} src={}
+
+
 ul {
   list-style-type: none;
 }
@@ -77,6 +87,10 @@ ul {
   border-bottom: 1px solid #DDD;
 }
 
+.dashboard-body .post:last-child {
+  border-bottom: none;
+}
+
 .dashboard-body .post h4{
   font-size: 22px;
   font-weight: 500;
@@ -89,7 +103,7 @@ ul {
 
 .dashboard-body .post .interactive-num {
   color: #403a3a;
-  margin-top: 10%;
+  margin-top: 8%;
 }
 
 .profile-menu > ul {
@@ -196,4 +210,11 @@ ul {
 }
 .interactive-num{
   display: flex;
+}
+.icon {
+  display: inline-flex;
+  background-color: #f5f5f5;
+  padding: 8px 16px 8px 16px;
+  border-radius: 3px;
+  margin-right: 24px;
 }
