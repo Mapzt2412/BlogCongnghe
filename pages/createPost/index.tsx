@@ -20,13 +20,24 @@ import icon_question from "../../assets/icon_question.png"
 import icon_math from "../../assets/icon_math.jpg"
 import { HandleTable } from "../../components/HandleTable";
 import { HandleVideo } from "../../components/handleVideo";
-
-
+import EditorMath from "../../components/Editor";
+import { Footer } from "../../components/Footer";
+import logo from "../../assets/logo.png"
 
 export default function CreatePost() {
   const [show, setShow] = useState(false);
+  const [showContentCode, setShowContentCode] = useState(false);
+  const [showImageCode, setShowImageCode] = useState(false);
+  const [showVideoCode, setShowVideoCode] = useState(false);
+  const [showTableCode, setShowTableCode] = useState(false);
+  const [showMapCode, setShowMapCode] = useState(false);
+  const [showMathCode, setShowMathCode] = useState(false);
+  const [showRateCode, setShowRateCode] = useState(false);
   const [close, setClose] = useState(false);
+  const [openDraft, setOpenMDraft] = useState(false);
+  const [publish, setPublish] = useState(false);
   const [showMap, setShowMap] = useState(false);
+
   const handleCloseMap = () => setShowMap(false);
   const handleShowMap = () => setShowMap(true);
   const [showTable, setShowTable] = useState(false);
@@ -55,8 +66,272 @@ export default function CreatePost() {
   useEffect(() => {
     setEditor(true)
   })
+  const [editorLoaded, setEditorLoaded] = useState(false);
+  const [data, setData] = useState("");
 
+  useEffect(() => {
+    setEditorLoaded(true);
+  }, []);
 
+  let imageCode = (
+    <>
+    <Row className="MediaContainer">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Hình ảnh
+                  </div>
+                  <input type="file" 
+                    onChange={handleImage }  
+                    style={{display:"none"}}   
+                  />
+                  <Button style={{ flexGrow: "1" }} onClick={ ()=>{
+                        const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+                        input.click();
+                    }}>+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                   className="deleteIcon"
+                   onClick={()=>{setShowImageCode(false)}}
+                >
+                  X
+                </div>
+              </Col>
+              {image && (
+                    <img src={image.preview} alt=""></img>
+                )
+                }
+            </Row>
+    </>
+  );
+  let videoCode = (
+    <>
+    <Row className="MediaContainer">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Video
+                  </div>
+                  <Button 
+                      style={{ flexGrow: "1" }}
+                      onClick={()=> {
+                        setShow(true)
+                      }} >+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                  onClick={()=>{setShowVideoCode(false)}}
+                >
+                  X
+                </div>
+              </Col>
+                <HandleVideo show ={show} parentCallback={callbackFunction}/>
+            </Row>
+    </>
+  );
+  let contentCode = (
+    <>
+    <Row className="TextContainer">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Nội dung
+                  </div>
+                </div>
+                {editor ? (
+                    <Editor
+                        wrapperClassName="wrapper-class"
+                        editorClassName="editor-class"
+                        toolbarClassName="toolbar-class"
+                        toolbar={{
+                            options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'fontFamily', 'colorPicker','emoji','history'],
+                            inline: { inDropdown: true },
+                            list: { inDropdown: true },
+                            textAlign: { inDropdown: true },
+                            link: { inDropdown: true },
+                            history: { inDropdown: true }
+                        }}
+                    />) : null}
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                  onClick={()=>{setShowContentCode(false)}}
+                >
+                  X
+                </div>
+              </Col>
+              
+            </Row></>
+  );
+  let mathCode = (
+    <>
+     <Row className="TextContainer">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Công thức toán học
+                  </div>
+                </div>
+                {<EditorMath
+                      name ="CreatePost"
+                      onChange={(data) => {
+                        setData(data);
+                      }}
+                      editorLoaded={editorLoaded}
+                    />}
+
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                  onClick={()=>{setShowMathCode(false)}}
+                >
+                  X
+                </div>
+              </Col>
+              
+            </Row>
+    </>
+  );
+  let tableCode = (
+    <>
+    <Row className="MediaContainer">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Bảng
+                  </div>
+                  <Button 
+                      style={{ flexGrow: "1" }}
+                      onClick={()=>{
+                        setShowTable(true)
+                      }} >+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                  onClick={()=>{setShowTableCode(false)}}
+                >
+                  X
+                </div>
+              </Col>
+            {(showTable == true) && (<HandleTable show = {showTable}/>)}
+            </Row>
+            </>
+  ); 
+  let mapCode = (
+    <>
+    <Row className=" MediaContainer ">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Bản đồ
+                  </div>
+                  <Button 
+                      style={{ flexGrow: "1" }}
+                      onClick={handleShowMap} >+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                  onClick={()=>{setShowMapCode(false)}}
+                >
+                  X
+                </div>
+              </Col>
+              { 
+                
+                (mapInput.current != null && mapInput.current.value) && (
+                  <div className="MapContainer" dangerouslySetInnerHTML={{__html: mapInput.current.value}}></div> 
+              )
+              }
+          </Row>
+    </>
+  );
+  let rateCode =(
+    <>
+    <Row className=" MediaContainer ">
+              <Col
+                lg={11}
+                className="item-container"
+              >
+                <div
+                  className="item"
+                >
+                  
+                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
+                    Đánh giá
+                  </div>
+                  <Button 
+                      style={{ flexGrow: "1" }}
+                      onClick={handleShowMap} >+</Button>
+                </div>
+              </Col>
+              
+              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
+                <div
+                  className="deleteIcon"
+                  onClick={()=>{setShowRateCode(false)}}
+                >
+                  X
+                </div>
+              </Col>
+          </Row>
+    </>
+  );
+  let element = (
+    <>
+    {contentCode}
+        </>
+);
   return (
     <div>
       <Head>
@@ -100,19 +375,23 @@ export default function CreatePost() {
               </Col>
               
               <Col lg={10} style={{ paddingRight: "0px" }}>
-                <Dropdown >
-                  <Dropdown.Toggle
-                    variant="secondary"
-                    id="dropdown-basic"
-                    className="col10"
-                  ></Dropdown.Toggle>
+              <Form.Select aria-label="Default select example">
+                <option>Chọn chủ đề cho bài viết của bạn </option>
+                <option value="1">TECHNOLOGY</option>
+                <option value="2">PROGRAMMING</option>
+                <option value="3">CRYPTOCURRENCY</option>
+                <option value="4">PYTHON</option>
+                <option value="5">JAVASCRIPT</option>
+                <option value="6">BLOCKCHAIN</option>
+                <option value="7">GAMING</option>
+                <option value="8">AI</option>
+                <option value="9">REACT</option>
+                <option value="10">SECURITY</option>
+                <option value="11">SOFTWARE DEVELOPMENT</option>
+                <option value="12">MACHINE LEARNING</option>
+                <option value="13">REVIEWS</option>
 
-                  <Dropdown.Menu style={{ width: "100%" }}>
-                    <Dropdown.Item href="#/action-1">Javascript</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Công nghệ</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Thiết bị</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+              </Form.Select>
               </Col>
               
             </Row>
@@ -170,100 +449,14 @@ export default function CreatePost() {
               </Col>
               
             </Row>
-            <Row className="MediaContainer">
-              <Col
-                lg={11}
-                className="item-container"
-              >
-                <div
-                  className="item"
-                >
-                  
-                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
-                    Hình ảnh
-                  </div>
-                  <input type="file" 
-                    onChange={handleImage }  
-                    style={{display:"none"}}   
-                  />
-                  <Button style={{ flexGrow: "1" }} onClick={ ()=>{
-                        const input = document.querySelector('input[type="file"]') as HTMLInputElement;
-                        input.click();
-                    }}>+</Button>
-                </div>
-              </Col>
-              
-              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
-                <div
-                   className="deleteIcon"
-                >
-                  X
-                </div>
-              </Col>
-              {image && (
-                    <img src={image.preview} alt=""></img>
-                )
-                }
-            </Row>
-            <Row className="MediaContainer">
-              <Col
-                lg={11}
-                className="item-container"
-              >
-                <div
-                  className="item"
-                >
-                  
-                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
-                    Video
-                  </div>
-                  <Button 
-                      style={{ flexGrow: "1" }}
-                      onClick={()=> {
-                        setShow(true)
-                      }} >+</Button>
-                </div>
-              </Col>
-              
-              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
-                <div
-                  className="deleteIcon"
-                >
-                  X
-                </div>
-              </Col>
-                <HandleVideo show ={show} parentCallback={callbackFunction}/>
-            </Row>
-            <Row className="MediaContainer">
-              <Col
-                lg={11}
-                className="item-container"
-              >
-                <div
-                  className="item"
-                >
-                  
-                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
-                    Video
-                  </div>
-                  <Button 
-                      style={{ flexGrow: "1" }}
-                      onClick={()=> {
-                        setShow(true)
-                      }} >+</Button>
-                </div>
-              </Col>
-              
-              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
-                <div
-                  className="deleteIcon"
-                >
-                  X
-                </div>
-              </Col>
-                  <HandleVideo show ={show} parentCallback={callbackFunction}/>
-
-            </Row>
+            {(showContentCode==true) ? contentCode: null}
+            {(showImageCode==true) ? imageCode: null}
+            {(showVideoCode==true) ? videoCode: null}
+            {(showTableCode==true) ? tableCode: null}
+            {(showMapCode==true) ? mapCode: null}
+            
+            {(showRateCode==true) ? rateCode: null}
+            {(showMathCode==true) ? mathCode: null}
             <Row className="TextContainer">
               <Col
                 lg={11}
@@ -274,23 +467,17 @@ export default function CreatePost() {
                 >
                   
                   <div style={{ flexGrow: "30", lineHeight: "38px" }}>
-                    Nội dung
+                    Công thức toán học
                   </div>
                 </div>
-                {editor ? (
-                    <Editor
-                        wrapperClassName="wrapper-class"
-                        editorClassName="editor-class"
-                        toolbarClassName="toolbar-class"
-                        toolbar={{
-                            options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'fontFamily', 'colorPicker','emoji','history'],
-                            inline: { inDropdown: true },
-                            list: { inDropdown: true },
-                            textAlign: { inDropdown: true },
-                            link: { inDropdown: true },
-                            history: { inDropdown: true }
-                        }}
-                    />) : null}
+                {<EditorMath
+                      name ="CreatePost"
+                      onChange={(data) => {
+                        setData(data);
+                      }}
+                      editorLoaded={editorLoaded}
+                    />}
+
               </Col>
               
               <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
@@ -302,92 +489,6 @@ export default function CreatePost() {
               </Col>
               
             </Row>
-            <Row className="MediaContainer">
-              <Col
-                lg={11}
-                className="item-container"
-              >
-                <div
-                  className="item"
-                >
-                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
-                    Bảng
-                  </div>
-                  <Button 
-                      style={{ flexGrow: "1" }}
-                      onClick={()=>{
-                        setShowTable(true)
-                      }} >+</Button>
-                </div>
-              </Col>
-              
-              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
-                <div
-                  className="deleteIcon"
-                >
-                  X
-                </div>
-              </Col>
-            {(showTable == true) && (<HandleTable show = {showTable}/>)}
-            </Row>
-            <Row className=" MediaContainer ">
-              <Col
-                lg={11}
-                className="item-container"
-              >
-                <div
-                  className="item"
-                >
-                  
-                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
-                    Bản đồ
-                  </div>
-                  <Button 
-                      style={{ flexGrow: "1" }}
-                      onClick={handleShowMap} >+</Button>
-                </div>
-              </Col>
-              
-              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
-                <div
-                  className="deleteIcon"
-                >
-                  X
-                </div>
-              </Col>
-              { 
-                
-                (mapInput.current != null && mapInput.current.value) && (
-                  <div className="MapContainer" dangerouslySetInnerHTML={{__html: mapInput.current.value}}></div> 
-              )
-              }
-          </Row>
-          <Row className=" MediaContainer ">
-              <Col
-                lg={11}
-                className="item-container"
-              >
-                <div
-                  className="item"
-                >
-                  
-                  <div style={{ flexGrow: "30", lineHeight: "38px" }}>
-                    Đánh giá
-                  </div>
-                  <Button 
-                      style={{ flexGrow: "1" }}
-                      onClick={handleShowMap} >+</Button>
-                </div>
-              </Col>
-              
-              <Col lg={1} style={{ lineHeight: "89px", paddingLeft: "16px" }}>
-                <div
-                  className="deleteIcon"
-                >
-                  X
-                </div>
-              </Col>
-          </Row>
             <Row>
               <Col
                 lg={11}
@@ -426,13 +527,14 @@ export default function CreatePost() {
                 <Button
                   variant="light"
                   style={{ border: "1px solid blue", color: "blue" }}
+                  onClick={()=>{setOpenMDraft(true)}}
                 >
                   LƯU BẢN NHÁP
                 </Button>
               </Col>
               <Col lg={3}>
                 {" "}
-                <Button variant="primary">ĐĂNG BÀI VIẾT</Button>
+                <Button variant="primary" onClick={()=>{setPublish(true)}}>ĐĂNG BÀI VIẾT</Button>
               </Col>
             </Row>
           </Col>
@@ -461,7 +563,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    <Image src={icon_text} width={150} height={150}></Image>
+                    <Image src={icon_text} width={150} height={150} onClick={() => {setShowContentCode(true)}}></Image>
                   </div>
                 </Col>
                 <Col lg={6}>
@@ -473,7 +575,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    <Image src={icon_image} width={150} height={150}></Image>
+                    <Image src={icon_image} width={150} height={150} onClick={() => {setShowImageCode(true)}}></Image>
                   </div>
                 </Col>
               </Row>
@@ -487,7 +589,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    <Image src={icon_Video} width={150} height={150}></Image>
+                    <Image src={icon_Video} width={150} height={150} onClick={() => {setShowVideoCode(true)}}></Image>
                   </div>
                 </Col>
                 <Col lg={6}>
@@ -523,7 +625,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    <Image src={icon_map} width={150} height={150}></Image>
+                    <Image src={icon_map} width={150} height={150} onClick={() => {setShowMapCode(true)}}></Image>
                   </div>
                 </Col>
               </Row>
@@ -537,7 +639,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    <Image src={icon_table} width={150} height={150}></Image>
+                    <Image src={icon_table} width={150} height={150} onClick={() => {setShowTableCode(true)}}></Image>
                   </div>
                 </Col>
                 <Col lg={6}>
@@ -549,7 +651,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    <Image src={icon_math} width={150} height={150}></Image>
+                    <Image src={icon_math} width={150} height={150} onClick={() => {setShowMathCode(true)}}></Image>
                   </div>
                 </Col>  
               </Row>
@@ -575,7 +677,7 @@ export default function CreatePost() {
                       marginTop: "15px"
                     }}
                   >
-                    <Image src={icon_rating} width={150} height={150}></Image>
+                    <Image src={icon_rating} width={150} height={150} onClick={() => {setShowRateCode(true)}}></Image>
                   </div>
                 </Col>
               </Row>
@@ -585,7 +687,67 @@ export default function CreatePost() {
           </Col>
         </Row>
       </div>
-
+      <Modal
+            show={openDraft}
+            onHide={()=>{setOpenMDraft(false)}}
+            backdrop="static"
+            keyboard={false}
+            
+        >
+          <Modal.Body>
+                <h2 className="text-center"><Image src={logo} width={200} height={48} className="logo">
+              </Image></h2>
+                <h4 className="text-muted text-center pt-2">Thông báo</h4>
+                <p className="text-center">Bạn có muốn lưu bài viết này không</p>
+                <div className="col d-flex justify-content-center">
+                        <Button className="btn btn-block text-center my-3 " style={{margin: 10}} data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{setOpenMDraft(false)}}>Lưu bản nháp</Button>
+                        <Button className="btn btn-block text-center my-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{setOpenMDraft(false)}}>Không</Button>
+                    </div>
+            </Modal.Body>
+        </Modal>
+        <Modal
+            show={openDraft}
+            onHide={()=>{setOpenMDraft(false)}}
+            backdrop="static"
+            keyboard={false}
+            
+        >
+          <Modal.Body>
+                <h2 className="text-center"><Image src={logo} width={200} height={48} className="logo">
+              </Image></h2>
+                <h4 className="text-muted text-center pt-2">Thông báo</h4>
+                <p className="text-center">Bạn có muốn lưu bài viết này không</p>
+                <div className="col d-flex justify-content-center">
+                        <Button className="btn btn-block text-center my-3 " style={{margin: 10}} data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{setOpenMDraft(false)}}>Lưu bản nháp</Button>
+                        <Button className="btn btn-block text-center my-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{setOpenMDraft(false)}}>Không</Button>
+                    </div>
+            </Modal.Body>
+        </Modal>
+        <Modal
+            show={publish}
+            onHide={()=>{setPublish(false)}}
+            backdrop="static"
+            keyboard={false}
+            
+        >
+          <Modal.Body>
+                <h2 className="text-center"><Image src={logo} width={200} height={48} className="logo">
+              </Image></h2>
+                <h4 className="text-muted text-center pt-2">Thông báo</h4>
+                <Form.Select aria-label="Default select example">
+                  <option>Chọn chế độ đăng bài</option>
+                  <option value="1">Công khai</option>
+                  <option value="2">Chỉ cho người theo dõi</option>
+                  <option value="3">Chỉ mình tôi</option>
+                </Form.Select>
+                <p className="text-center">Bạn có muốn đăng bài ngay lập tức </p>
+                <div className="col d-flex justify-content-center">
+                        <Button className="btn btn-block text-center my-3 " style={{margin: 10}} data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{setPublish(false)}}>Đăng bài</Button>
+                        <Button className="btn btn-block text-center my-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{setPublish(false)}}>Lập lịch đăng bài</Button>
+                  </div>
+            </Modal.Body>
+        </Modal>
+    <Footer/>
     </div>
   );
 
