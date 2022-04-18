@@ -91,7 +91,7 @@ export const ShortVideoDetail = (props) =>{
                         autoPlay
                         onClick={onVideoPress}
                         ref={videoRef}
-                        src="https://v16-webapp.tiktok.com/cbba98386aa26b6f023aba0cbe7b4524/62500a38/video/tos/useast2a/tos-useast2a-pve-0037c001-aiso/2d292ad9829048749c38e1042ad8a717/?a=1988&br=1392&bt=696&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8Z-QXGwe2NIfnml7Gb&l=2022040804105201024506219213029570&lr=tiktok_m&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzU2bzk6ZmVqOzMzZjczM0ApaTU3NzQ8O2U2NzU8Zjc8N2cvMm1ecjQwa2FgLS1kMWNzcy4zYi0uYl40YzUvLjEwX2I6Yw%3D%3D&vl=&vr="
+                        src="https://v16-webapp.tiktok.com/78275b627d821dbc6cced14a21ffc017/625c8462/video/tos/useast2a/tos-useast2a-pve-0037-aiso/81de9e95f323412196e11cdb0daf4c69/?a=1988&br=3264&bt=1632&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZVCowwe2Nrvhml7Gb&l=2022041715184501024504315308134D1C&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3A8eWY6ZjNsOzMzZjgzM0ApNzhpOTw0OzszNzdnOmRkNWdzNjNlcjRvY2dgLS1kL2NzczZgYzIuMzAvYmBjXzEzLWI6Yw%3D%3D&vl=&vr="
                         >
                     </video>
                 </div>
