@@ -18,7 +18,7 @@ export const ListArticleCard = (props) => {
                   </div>
                 </div>
                 <div className="more"> 
-                    <a href="#" >Xem thêm</a>
+                    <a href="listArticle" >Xem thêm</a>
                     <Image src={ArrowIcon}></Image>
                 </div>
                 
@@ -29,7 +29,6 @@ export const ListArticleCard = (props) => {
                 
                 <Col lg={4}>
                   <section className='articleCard'>
-                  
                   <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={avatar} img={props.image[0]} author="ndminhduc" time="01/03/2020"/>
                 </section>
                 </Col>

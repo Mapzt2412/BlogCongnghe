@@ -30,7 +30,7 @@ export default function Profile() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header userId="1"/>
+      <Header userId="1" page="newsFeed"/>
 
       <div className="container2">
         <div style={{ color: "#999", padding: "20px 0px 30px 0px" }}>

@@ -15,7 +15,7 @@ export default function Vlog (){
                 <title>Vlog</title>
                 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
             </Head>
-            <Header userId ="1"/>
+            <Header userId ="1" page="vlog"/>
             <HotNews/>
             <div className="container" >
                 <Row>

@@ -78,7 +78,7 @@ export const ShortVideoDetail = (props) =>{
     return (
         <>
         
-        <div className="ShortVideoPlayer">
+        <div className="ShortVideoPlayer" >
             <div className="VideoContainer">
                 {setIconPlay()}
                 <div className="ShortVideoBackGround" ></div>
@@ -91,7 +91,7 @@ export const ShortVideoDetail = (props) =>{
                         autoPlay
                         onClick={onVideoPress}
                         ref={videoRef}
-                        src="https://v16-webapp.tiktok.com/78275b627d821dbc6cced14a21ffc017/625c8462/video/tos/useast2a/tos-useast2a-pve-0037-aiso/81de9e95f323412196e11cdb0daf4c69/?a=1988&br=3264&bt=1632&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZVCowwe2Nrvhml7Gb&l=2022041715184501024504315308134D1C&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3A8eWY6ZjNsOzMzZjgzM0ApNzhpOTw0OzszNzdnOmRkNWdzNjNlcjRvY2dgLS1kL2NzczZgYzIuMzAvYmBjXzEzLWI6Yw%3D%3D&vl=&vr="
+                        src="https://v16-webapp.tiktok.com/f4690f26436d76606b55b9b26136bfa0/625d35f3/video/tos/maliva/tos-maliva-ve-0068c799-us/f3f4265f1d2d4e73944cc0b53449ffc3/?a=1988&br=2402&bt=1201&cd=0%7C0%7C0%7C0&ch=0&cr=0&cs=0&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZLwPwwe2NqYQml7Gb&l=202204180356480102450241581C05F8F3&lr=tiktok_m&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajM2eDk6ZnVoPDMzZzczNEApZ2VpZmk4aWVlNzwzOzU0aWcuYzVjcjRfZGBgLS1kMS9zc15iYWEuLzZgX2IyYi42NDQ6Yw%3D%3D&vl=&vr="
                         >
                     </video>
                 </div>

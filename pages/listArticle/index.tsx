@@ -23,7 +23,7 @@ export default function listArticle () {
 
                 <Row>
                     <Col lg={8} className="dashboard-body">
-                        <h3>DANH SÁCH BÀI VIẾT ĐÃ ĐĂNG</h3>
+                        <h3>TECHNOLOGY</h3>
                         <Post />
                         <Post />
                         <Post />

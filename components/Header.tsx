@@ -100,7 +100,7 @@ export const Header = (props) => {
       </Navbar>
       <Login open = {openLogin} /> 
       <Register open = {openRegister} /> 
-      <Navbars/>
+      <Navbars page={props.page}/>
     </>
   );
 }
