@@ -17,9 +17,9 @@ export const Navbars = () => {
       <Container>
         <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-center'>
           <Nav className="collapse-custom ">
-            <Nav.Link href="#home" style={{color:"white"}}>Trang chủ</Nav.Link>
+            <Nav.Link href="home" style={{color:"white"}}>Trang chủ</Nav.Link>
             <Nav.Link href="#gioithieu" style={{color:"white"}}>Giới thiệu</Nav.Link>
-            <Nav.Link href="#bangtin" style={{color:"white"}}>Bảng tin</Nav.Link>
+            <Nav.Link href="newsFeed" style={{color:"white"}}>Bảng tin</Nav.Link>
             <Nav.Link href="#xuhuong" style={{color:"white"}}>Xu hướng</Nav.Link>
             <Nav.Link href="#tintuc" style={{color:"white"}}>Tin tức</Nav.Link>
             <Nav.Link href="#dexuat" style={{color:"white"}}>Đề xuất</Nav.Link>

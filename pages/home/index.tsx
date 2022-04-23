@@ -30,7 +30,7 @@ export default function Home() {
         <title>Trang chủ</title>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
       </Head>
-      <Header userId ="0" page = "home"/>
+      <Header userId ="1" page = "home"/>
       
       <HotNews/>
       <div className="container" >
