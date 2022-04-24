@@ -20,7 +20,8 @@
     width: 100%;
     height: 100%;
 }
-video{
+.VideoContainer video{
+    z-index: 3;
     display: block;
     height: 100%;
     object-fit: contain !important;
@@ -34,7 +35,7 @@ video{
     flex-direction: row;
 }
 .ShortVideoBackGround{
-    background-image: url("https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/0d2a4c67774e4be596f601dd6aa9cc20?x-expires=1649412000&x-signature=xynJvlA1XyIVJ%2BaboHJ3YV2e1uo%3D") !important;
+    // background-image: url("https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/2c0a0193d3be45d78ed07e418fa41866_1649993981~tplv-dmt-logom:tos-useast5-p-0000-tx/c01361dd7f8f4a8182c8d0243b554d53.image?x-expires=1650272400&x-signature=mNMKzNRkFaqRPYiRElHcn%2BKbXFs%3D") !important;
     position: absolute;
     width: 10%;
     height: 10%;

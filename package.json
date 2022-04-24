@@ -16,6 +16,7 @@
     "ckeditor5-classic-with-mathtype": "^1.0.0",
     "draft-js": "^0.11.7",
     "jquery": "^3.6.0",
+    "jsx-to-string": "^1.4.0",
     "ka-table": "^7.3.0",
     "next": "^12.1.0",
     "next-images": "^1.8.4",

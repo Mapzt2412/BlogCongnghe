@@ -37,7 +37,7 @@ export default function Post() {
               />
               <div style={{ width: "100%", height: "100%", borderRadius: "11px", overflow: "hidden", position: "relative" }}>
                 <img
-                  src="https://p16-sign-va.tiktokcdn.com/obj/tos-useast2a-p-0037-aiso/088555cc430f4950915516e6a20f0678_1646733324?x-expires=1650229200&x-signature=b%2FgNgyEdlBXpGykIHhgZ5uQLJv0%3D"
+                  src="https://p16-sign-va.tiktokcdn.com/tos-maliva-p-0068/7ced7c5a80134de39a443e0ba99df312~tplv-dmt-logom:tos-maliva-p-0000/882855fe5e044f4c8952b50f8c4d2a29.image?x-expires=1650384000&x-signature=H1zg8il%2BQOboxGVNzGr7uofiG%2FY%3D"
                   alt="Post Image"
                   width="100%"
                   height="100%"

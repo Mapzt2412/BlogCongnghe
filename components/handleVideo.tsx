@@ -6,8 +6,7 @@ import CreatePost from "../pages/createPost";
 export const HandleVideo = (props)=>{
   
     const [show, setShow] = useState(false);
-    const handleClose = () => {setShow(false);
-      }
+    const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const textInput = useRef(null)
     useEffect(()=>{
@@ -26,10 +25,10 @@ export const HandleVideo = (props)=>{
         <Form.Control type="text" placeholder="Url video" id="Url_video" ref={textInput}/>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={()=>{handleClose}}>
+          <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={()=>{handleClose}}>
+          <Button variant="primary" onClick={handleClose}>
             Save Changes
           </Button>
         </Modal.Footer>
