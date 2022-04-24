@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from "react";
-import Editor from "../components/Editor";
+import { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 
-export default function App() {
-  const [editorLoaded, setEditorLoaded] = useState(false);
-  const [data, setData] = useState("");
+import { userService } from 'services';
 
-  useEffect(() => {
-    setEditorLoaded(true);
-  }, []);
+export default Home;
 
-  return (
-    <div className="App">
-      <h1>ckEditor 5</h1>
+function Home() {
 
-      <Editor
-        name="description"
-        onChange={(data) => {
-          setData(data);
-        }}
-        editorLoaded={editorLoaded}
-      />
 
-      {JSON.stringify(data)}
-    </div>
-  );
+    return (
+        <div className="card mt-4">
+            
+                <Button onClick= {()=>{userService.logout();}}>logout</Button>
+
+        </div>
+    );
 }

@@ -75,8 +75,8 @@ export default function Profile() {
           >
             VÕ PHƯƠNG HOÀI LINH
           </h3>
-          <div style={{ color: "#ffe200", fontSize: "17px", textAlign: "center" }}>
-            star star star star star
+          <div style={{fontSize: "17px", textAlign: "center" }}>
+            Cấp độ: Sơ cấp
           </div>
           <div className="contact" style={{ padding: "10px 0", textAlign: "center", color: "#8a8a8a" }}>
             <span style={{ padding: "0px 40px" }}>Email: vphlin1994@gmail.com</span>
@@ -87,9 +87,9 @@ export default function Profile() {
             <span>|</span>
             <span>Điện thoại: 090 123 4567</span>
             <span>|</span>
-            <span>Email: vphlin1994@gmail.com</span>
+            <span>Số người theo dõi: 17K</span>
             <span>|</span>
-            <span>Điện thoại: 090 123 4567</span>
+            <span>Số lượng thích: 567K</span>
           </div>
         </div>
 
