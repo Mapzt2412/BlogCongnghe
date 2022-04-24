@@ -95,6 +95,88 @@ export default function handler(req, res) {
           title: "Ford ngừng nhận đặt hàng xe điện Mustang Mach-Ez",
           date: "20/4/2022",
           thumbnail: "https://znews-photo.zingcdn.me/w860/Uploaded/neg_estpyge/2022_04_20/Ford_Mustang_Mach_E_Zing_8_.jpg"
+        },
+        {
+          id: 4,
+          author: {
+            name: "trannguengggi",
+            avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc2gbptIgY-ONJJtfrGV3j452K43bYpwHUiA&usqp=CAU"
+          },
+          title: "Săn sale hàng hiệu với ưu đãi đến 70%",
+          date: "18/4/2022",
+          thumbnail: "https://znews-photo.zingcdn.me/w860/Uploaded/natmzz/2022_04_22/2022_04_21T103911Z_277295454_RC2LRT972EVN_RTRMADP_3_SOCCER_ENGLAND_MUN.JPG"
+        },
+        {
+          id: 5,
+          author: {
+            name: "aichettiet",
+            avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSwese3WMdVTlYe-5ZjU5S8L_gJXpTUKZa5g&usqp=CAU"
+          },
+          title: "Ten Hag nhận lương cao thứ 5 ở Ngoại hạng Anh",
+          date: "23/4/2022",
+          thumbnail: "https://znews-photo.zingcdn.me/w1200/Uploaded/bpivpawv/2022_04_21/DD_COMP_TEN_HAG_ANNOUNCED_v2.jpg"
+        }
+      ]
+    },,
+    {
+      topic: "BLOCKCHAIN",
+      posts: [
+        {
+          id: 1,
+          author: {
+            name: "vannguyen",
+            avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuWPkoD_BlrMnQbA3rx3OFD-xHD86fc3S3XA&usqp=CAU"
+          },
+          title: "FLC Faros bổ nhiệm chủ tịch mới",
+          date: "23/4/202",
+          thumbnail: "https://znews-photo.zingcdn.me/w860/Uploaded/rohuoct/2022_04_23/Chi_Binh_Phuong.jpg"
+        },
+        {
+          id: 2,
+          author: {
+            name: "caracao",
+            avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTtw1U--5ExL_X-d_ePiCs0nrqdRwXauasyw&usqp=CAU"
+          },
+          title: "Phó chủ tịch FLC bị xử phạt vì kiêm nhiệm nhiều chức danh",
+          date: "6/4/2022",
+          thumbnail: "https://znews-photo.zingcdn.me/w860/Uploaded/mzdqa/2022_04_06/huong_nguyen_kieu_dung_flc2.jpg"
+        },
+        {
+          id: 3,
+          author: {
+            name: "levanx",
+            avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy7A2lcHK0-953HuH4HE5gv05j2R4Ga84qvw&usqp=CAU"
+          },
+          title: "Vì sao tổng giám đốc FLC không ký các văn bản công bố thông tin?",
+          date: "4/4/2022",
+          thumbnail: "https://znews-photo.zingcdn.me/w860/Uploaded/aohunkx/2022_03_29/FLC_1.jpg"
+        },
+        {
+          id: 4,
+          author: {
+            name: "hoangthis",
+            avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc2gbptIgY-ONJJtfrGV3j452K43bYpwHUiA&usqp=CAU"
+          },
+          title: "Ngân hàng sẽ không bán giải chấp cổ phiếu Bamboo Airways",
+          date: "30/3/2022",
+          thumbnail: "https://znews-photo.zingcdn.me/w860/Uploaded/aohunkx/2020_11_02/IMG_3862_bamboo_airways.jpg"
+        },
+        {
+          id: 5,
+          author: {
+            name: "thichcauqua",
+            avatar:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSwese3WMdVTlYe-5ZjU5S8L_gJXpTUKZa5g&usqp=CAU"
+          },
+          title: "Đồng hồ Esprit, Just Cavalli tạo chất riêng cho quý cô tinh tế",
+          date: " 22/4/2022",
+          thumbnail: "https://znews-photo.zingcdn.me/w1920/Uploaded/wyhktpu/2022_04_22/2_3.jpg"
         }
       ]
     }
