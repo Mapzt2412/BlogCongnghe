@@ -16,7 +16,7 @@ export const TrendingCard = (props) => {
           />
         </Col>
           <Col lg={8}>
-            <p>Trong tương lai mô hình kinh doanh sẽ chuyển sang online</p>
+            <p>{props.title}</p>
           </Col>
       </Row>
     );

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -5,11 +6,21 @@ import { Row, Col } from "react-bootstrap";
 import avatar from "../assets/avatar3.jpg";
 import NextIcon from "../assets/icon_next.png";
 
-export default function Post() {
-  const arrs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+export default function NewsFeedBar() {
+  const [listStory, setListStory] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/shortVideo')
+    .then(response => response.json())
+    .then(data => {
+      setListStory(data);
+    });
+  }, []);
+  console.log(listStory);
+
   return (
     <div style={{ paddingBottom: "40px" }}>
-      {arrs.map((val) => {
+      {listStory&&listStory.slice(0, 9).map((val) => {
         return (
           <Link href="/shortvideo">
             <div
@@ -23,7 +34,7 @@ export default function Post() {
             >
               <img
                 className="story-avatar"
-                src="/avatar.jpg"
+                src={val.avatar}
                 width="40px"
                 height="40px"
                 style={{
@@ -37,7 +48,7 @@ export default function Post() {
               />
               <div style={{ width: "100%", height: "100%", borderRadius: "11px", overflow: "hidden", position: "relative" }}>
                 <img
-                  src="https://p16-sign-va.tiktokcdn.com/tos-maliva-p-0068/7ced7c5a80134de39a443e0ba99df312~tplv-dmt-logom:tos-maliva-p-0000/882855fe5e044f4c8952b50f8c4d2a29.image?x-expires=1650384000&x-signature=H1zg8il%2BQOboxGVNzGr7uofiG%2FY%3D"
+                  src={val.thumbnail}
                   alt="Post Image"
                   width="100%"
                   height="100%"
@@ -68,7 +79,7 @@ export default function Post() {
                   zIndex: "100"
                 }}
               >
-                VPHLinh
+                {val.author}
               </div>
             </div>
           </Link>

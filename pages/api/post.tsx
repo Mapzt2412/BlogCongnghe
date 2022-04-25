@@ -119,7 +119,7 @@ export default function handler(req, res) {
           thumbnail: "https://znews-photo.zingcdn.me/w1200/Uploaded/bpivpawv/2022_04_21/DD_COMP_TEN_HAG_ANNOUNCED_v2.jpg"
         }
       ]
-    },,
+    },
     {
       topic: "BLOCKCHAIN",
       posts: [

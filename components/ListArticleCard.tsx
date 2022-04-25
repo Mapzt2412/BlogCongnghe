@@ -6,6 +6,7 @@ import avatar from "../assets/avatar1.jpg"
 import Image from "next/image";
 import ArrowIcon from "../assets/icon_next.png"
 export const ListArticleCard = (props) => {
+  console.log(props);
     return (
         <>
         <div className='list-card'>
@@ -26,24 +27,13 @@ export const ListArticleCard = (props) => {
               
             
               <Row>
-                
-                <Col lg={4}>
-                  <section className='articleCard'>
-                  <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={avatar} img={props.image[0]} author="ndminhduc" time="01/03/2020"/>
-                </section>
-                </Col>
-                <Col lg={4}>
-                  <section className='articleCard'>
-                  
-                  <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={"https://photo2.tinhte.vn/data/avatars/l/252/252123.jpg?1571427085"} img={props.image[1]} author="MinhTriND" time="01/03/2020"/>
-                </section>
-                </Col>
-                <Col lg={4}>
-                  <section className='articleCard'>
-                  
-                  <ArticleCard title = "Nga tuyen bo chan FaceBook de chan tin gia" avatar={avatar} img={props.image[2]} author="ndminhduc" time="01/03/2020"/>
-                </section>
-                </Col>
+                {props.postsList&&props.postsList.slice(0, 3).map((post) => {
+                  return <Col lg={4}>
+                    <section className='articleCard'>
+                    <ArticleCard title ={post.title} avatar={post.author.avatar} img={post.thumbnail} author={post.author.name} time={post.date}/>
+                  </section>
+                  </Col>
+                })}
               </Row>
             </div>
             </>

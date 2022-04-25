@@ -8,7 +8,7 @@ import Post from "../../components/post";
 import { Header } from "../../components/Header";
 import { EditProfile } from "../../components/EditProfile";
 import { ChangePassWord } from "../../components/ChangePassWord";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Follower } from "../../components/Follower";
 import Draft from "../../components/draft";
 
@@ -16,15 +16,25 @@ export default function Dashboard() {
   let classHead = "head";
 
   const [content, setContent] = useState("article");
+  const [listPosts, setListPosts] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/post')
+    .then(response => response.json())
+    .then(data => {
+      let list = data[0].posts.concat(data[1].posts, data[2].posts);
+      setListPosts(list);
+    });
+  }, []);
+
   function DashBoardContent(){
     if(content == "article"){
       return (
         <>
         <h3>DANH SÁCH BÀI VIẾT ĐÃ ĐĂNG</h3>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          {listPosts&&listPosts.slice(0, 8).map((post) => {
+          return <Post thumbnail={post.thumbnail || ""} title={post.title} author={post.author.name} avatar={post.author.avatar} />;
+        })}
         </>
       );
     }

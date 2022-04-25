@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HotNews } from '../../components/HotNews'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
@@ -22,6 +22,18 @@ let thumbnailImage = ["https://photo2.tinhte.vn/data/attachment-files/2022/04/59
 "https://photo2.tinhte.vn/data/attachment-files/2022/04/5935900_cover_fujikofujioa_large.jpg",
 "https://photo2.tinhte.vn/data/attachment-files/2022/03/5926943_h1.jpg",]
 export default function Home() {
+  const [listArtical, setListArtical] = useState(null);
+  const [listTrending, setListTrending] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/post')
+    .then(response => response.json())
+    .then(data => {
+      setListArtical(data);
+      let listPosts = data[0].posts.concat(data[1].posts, data[2].posts);
+      setListTrending(listPosts);
+    });
+  }, []);
   
   return (
     <div>
@@ -37,18 +49,17 @@ export default function Home() {
         <Row>
           <Col lg={8}>
             <ControlledCarousel image={thumbnailImage.slice(0,5)}/>
-            <ListArticleCard title="TECHNOLOGY" image={thumbnailImage.slice(0,3)}/>
-            <ListArticleCard title="PROGRAMMING" image={thumbnailImage.slice(3,6)}/>
-            <ListArticleCard title="BLOCKCHAIN" image={thumbnailImage.slice(6,9)}/>
+            {listArtical&&listArtical.map((artical) => {
+              return <ListArticleCard title={artical.topic} postsList={artical.posts} image={thumbnailImage.slice(0,3)}/>
+            })}
           </Col>
           <Col lg={4} className="grid2">
             <div className='xuhuong grid2-frames'>
             <h4>Xu hướng</h4>
             <hr />
-              <TrendingCard image={thumbnailImage[0]}/>
-              <TrendingCard image={thumbnailImage[1]}/>
-              <TrendingCard image={thumbnailImage[3]}/>
-              <TrendingCard image={thumbnailImage[5]}/>
+              {listTrending&&listTrending.slice(0, 4).map((post) => {
+                return <TrendingCard title={post.title} image={post.thumbnail}/>
+              })}
               <div className='more'>
                 <a href="#">Xem thêm</a>
               </div>
@@ -61,11 +72,9 @@ export default function Home() {
               <h4>BÀI VIẾT LIÊN QUAN</h4>
               <hr />
               <ol>  
-                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>  
-                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>  
-                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>  
-                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>  
-                <li>Người dùng bị khóa FaceBook nếu ông bật tính năng bảo mật</li>
+                {listTrending&&listTrending.slice(0, 5).map((post) => {
+                  return <li>{ post.title }</li> 
+                })}
               </ol>  
             </div>
           </Col>

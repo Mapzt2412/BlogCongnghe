@@ -4,7 +4,7 @@ module.exports = withImages()
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['p16-sign-va.tiktokcdn.com','miro.medium.com','photo2.tinhte.vn','www.seekpng.com', "rr7---sn-42u-nbosk.googlevideo.com"],
+    domains: ['p16-sign-va.tiktokcdn.com','miro.medium.com','photo2.tinhte.vn','www.seekpng.com', "rr7---sn-42u-nbosk.googlevideo.com", "znews-photo.zingcdn.me", "encrypted-tbn0.gstatic.com"],
     formats: ['image/avif', 'image/webp'],
   },
 

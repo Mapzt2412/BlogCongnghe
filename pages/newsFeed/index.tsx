@@ -7,18 +7,27 @@ import { Follower } from "../../components/Follower";
 import Post from "../../components/post";
 import NewsFeedBar from "../../components/newsFeedBar";
 import { Header } from "../../components/Header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Profile() {
-  const [content, setContent] = useState("article");
+  const [content, setContent] = useState("article"); 
+  const [listPosts, setListPosts] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/post')
+    .then(response => response.json())
+    .then(data => {
+      let list = data[0].posts.concat(data[1].posts, data[2].posts);
+      setListPosts(list);
+    });
+  }, []);
   function ProFileContent (){
     return( 
       <>
       <h3>DANH SÁCH BÀI VIẾT</h3>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        {listPosts&&listPosts.slice(0, 8).map((post) => {
+          return <Post thumbnail={post.thumbnail || ""} title={post.title} author={post.author.name} avatar={post.author.avatar} />;
+        })}
       </>
     );
   }
