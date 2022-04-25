@@ -40,7 +40,7 @@ export const VideoCard = () =>{
                         className="short_video_player"
                         loop
                         autoPlay={true}
-                        src="https://v16-webapp.tiktok.com/30bb378c5f141d50690106d5e75f970e/6263d522/video/tos/useast2a/tos-useast2a-pve-0037-aiso/0d40cd3b1c9d48a2b16a5cfa7cb008b5/?a=1988&br=6628&bt=3314&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZHrONwe2NPWF2l7Gb&l=202204230428330102450050981A8DD067&lr=tiktok&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anhzbzc6Zmc1PDMzZjgzM0ApPDs6aDw6N2U1NzY8NjM2ZWdvc3FqcjQwZGVgLS1kL2NzczYvNjUyX2A2YDFjNF82L186Yw%3D%3D&vl=&vr="
+                        src="https://v16-webapp.tiktok.com/0f965934b701c80abaae8a0881787cf6/6266a74f/video/tos/useast2a/tos-useast2a-pve-0037c001-aiso/4581c7f83c854bca934d342c3308020e/?a=1988&br=2396&bt=1198&cd=0%7C0%7C0%7C0&ch=0&cr=0&cs=0&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZjcN4we2NecQml7Gb&l=202204250747450102452441951805C35C&lr=tiktok_m&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2ZyaDY6ZnRtOzMzZjgzM0ApOThnMzplN2Q2N2ZnPGRlZGdrbF5hcjQwZTRgLS1kL2Nzcy5iLy40MjU1NF8uNDE1LjE6Yw%3D%3D&vl=&vr="
                         >
                     </video>
                 </>

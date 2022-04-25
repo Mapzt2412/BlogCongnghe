@@ -4,7 +4,8 @@ export const ArticleCard = (props) => {
     
     return (
         
-        <>  <Link href="listArticleDetail">
+        <>  
+        <Link href="listArticleDetail">
             <Image
                 src={props.img}
                 width={320}
@@ -16,10 +17,12 @@ export const ArticleCard = (props) => {
             <div className="author">
                 <div className="AuthorDetail">
                     <div className="AvatarAuthor">
+                        <Link href="profile">
                         <Image src={props.avatar}
                         width={320}
                         height={180}
                         />
+                        </Link>
                     </div>
                     <p>{props.author}</p>
                 </div>

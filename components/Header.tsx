@@ -20,9 +20,7 @@ export const Header = (props) => {
 
   useEffect(() => {
     userService.getAll().then(x => setUsers(x));
-    
   }, []);
-  console.log(users)
   useEffect(() => {
     setOpenMLogin(false);
   }, [openLogin])

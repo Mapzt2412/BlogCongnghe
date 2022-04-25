@@ -10,7 +10,7 @@ import { EditProfile } from "../../components/EditProfile";
 import { ChangePassWord } from "../../components/ChangePassWord";
 import { useEffect, useState } from "react";
 import { Follower } from "../../components/Follower";
-import Draft from "../../components/draft";
+import Draft from "../../components/Draft";
 
 export default function Dashboard() {
   let classHead = "head";

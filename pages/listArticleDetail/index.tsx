@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import { Header } from "../../components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -33,8 +34,14 @@ export default function listArticleDetail() {
           Google Pixel 6
         </h3>
         <div className="interactive-num">
+
+        <Link href='profile'>
           <Image src={avatar} width={30} height={30}></Image>
-          <p>_vphlinh</p>
+        </Link>
+        <Link href='profile'>
+          <p>_vphlinh</p> 
+        </Link>
+          
           <Button
             variant="primary"
             style={{
