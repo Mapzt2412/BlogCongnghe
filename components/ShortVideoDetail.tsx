@@ -3,6 +3,8 @@ import { Button, Form } from "react-bootstrap";
 import { Value } from "sass";
 import Image from "next/image";
 import avatar from "../assets/avatar.jpg"
+import LikeShareComment from "./LikeShareComment";
+import Link from "next/link";
 
 export const ShortVideoDetail = (props) =>{
     const videoRef = useRef(null);
@@ -91,7 +93,7 @@ export const ShortVideoDetail = (props) =>{
                         autoPlay
                         onClick={onVideoPress}
                         ref={videoRef}
-                        src="https://v16-webapp.tiktok.com/8b90d67ee38730b1cedc1de6e75c3fc2/625ee5c7/video/tos/useast2a/tos-useast2a-ve-0068c001/c92e1adaf44e4cf39cfe267419f3fcfb/?a=1988&br=2908&bt=1454&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZMsVwwe2NV2hml7Gb&l=202204191038370102450190540FB2C794&lr=tiktok_m&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzk0c252Nng0NDMzNzczM0ApNjk6aTg6ZWVkNzwzPDszOWdzaHNkMjBqcnFgLS1kMTZzc2E0YV5jNTReMi1hLjFeYjA6Yw%3D%3D&vl=&vr="
+                        src="https://v16-webapp.tiktok.com/b0172f35f265e5b12a465e0f4dc0a3e3/62666d36/video/tos/useast2a/tos-useast2a-ve-0068c004/7e35a17a280d4f09b439720707c8e7c6/?a=1988&br=950&bt=475&cd=0%7C0%7C1%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&er=&ft=eXd.6Hk_Myq8ZGzG4we2Nr2hml7Gb&l=20220425034302010244026189110A5106&lr=tiktok_m&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anRnM2Q6ZnBnNzMzNzczM0ApOjM2NzllPDs5N2czZmQ0NWdeXy0tcjQwZV5gLS1kMTZzc18xNC5eXmIuLzAuNl5jYWI6Yw%3D%3D&vl=&vr="
                         >
                     </video>
                 </div>
@@ -110,7 +112,7 @@ export const ShortVideoDetail = (props) =>{
                     
                 </div>
                 
-                <Button className="ButtonVoiceControl" onClick={(e) =>setMute(e)}>
+                <Button variant="" className="ButtonVoiceControl" onClick={(e) =>setMute(e)}>
                     <svg width={40} height={40} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx={24} cy={24} fill="000" fillOpacity={1}></circle>
                         {setIcon()}
@@ -124,7 +126,7 @@ export const ShortVideoDetail = (props) =>{
                     <a data-e2e="browse-user-avatar" className="tiktok-3izs7l ec62sd5" href="/@maivuluan">
                         <div className="tiktok-uha12h-DivContainer e1vl87hj1" style={{width: "40px; height: 40px;"}}>
                             <span className="SpanAvatarContainer" style={{width: "40px; height: 40px;"}}>
-                                <Image loading="lazy" 
+                                <Image 
                                 src={avatar}
                                 alt="avatar"
                                 className="ImgAvatar"/>
@@ -143,27 +145,7 @@ export const ShortVideoDetail = (props) =>{
                 <div className="MainContainer">
                     <p>Tôi yêu Việt Nam</p>
                     <div className="Interactive">
-                        <Button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-share" viewBox="0 0 16 16">
-                            <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-                            
-                            </svg>
-                        <p>Like</p>
-                        </Button>
-                        <Button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-share" viewBox="0 0 16 16">
-                            <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-                            
-                            </svg>
-                        <p>Share</p>
-                        </Button>
-                        <Button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-share" viewBox="0 0 16 16">
-                            <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-                            
-                            </svg>
-                        <p>Comment</p>
-                        </Button>
+                        <LikeShareComment />
                         
                     </div>
                     <div className="WriteComment">
@@ -176,11 +158,14 @@ export const ShortVideoDetail = (props) =>{
                 </div>
             </div>
             
-            <Button className="ShortVideoClose"> 
+            <Button variant="" className="ShortVideoClose" > 
+                <Link href="newsFeed">
+                
                 <svg width={18} height={18} viewBox="0 0 9 10" fill="#fff" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.35299 0.792837L4.49961 3.93944L7.64545 0.792566C7.8407 0.597249 8.15733 0.597223 8.35262 0.792508L8.70669 1.14658C8.90195 1.34184 8.90195 1.65842 8.70669 1.85368L5.56027 5.0001L8.70672 8.14655C8.90198 8.34181 8.90198 8.65839 8.70672 8.85366L8.35316 9.20721C8.1579 9.40247 7.84132 9.40247 7.64606 9.20721L4.49961 6.06076L1.35319 9.20719C1.15793 9.40245 0.841345 9.40245 0.646083 9.20719L0.292629 8.85373C0.0973708 8.65847 0.0973653 8.3419 0.292617 8.14664L3.43895 5.0001L0.292432 1.85357C0.0972034 1.65834 0.0971656 1.34182 0.292347 1.14655L0.645801 0.792924C0.841049 0.597582 1.1577 0.597543 1.35299 0.792837Z">
                     </path> 
                 </svg>
+                </Link>
             </Button>
             
         </div>

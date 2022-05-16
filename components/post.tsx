@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-
+import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
 import avatar from "../assets/avatar3.jpg"
@@ -9,8 +9,10 @@ export default function Post(props) {
   return (
     <Row className="post">
       <Col lg={4}>
+        <Link href="listArticleDetail">
         <Image src={props.thumbnail || ""} alt="Post Image" layout="intrinsic" width={720} height={480} />
-      </Col>
+        </Link>
+      </Col>  
       <Col lg={8}>
         <h4>{props.title}</h4>
         <p>
