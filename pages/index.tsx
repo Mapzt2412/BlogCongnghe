@@ -5,14 +5,18 @@ import { userService } from 'services';
 
 export default Home;
 
+import Router from 'next/router'
+ 
+
 function Home() {
 
-
+    useEffect(() => {
+        const {pathname} = Router
+        if(pathname == '/' ){
+            Router.push('/home')
+        }
+      });
     return (
-        <div className="card mt-4">
-            
-                <Button onClick= {()=>{userService.logout();}}>logout</Button>
-
-        </div>
+        <></>
     );
 }
